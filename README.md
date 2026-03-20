@@ -68,7 +68,50 @@ To convert raw `.mp4` videos:
 python src/utils/video2npy.py --input_dir videos/ --output_dir data/
 ```
 
-The Delfys75 dataset (75 real-world videos across 5 physical systems) is available on [Kaggle](https://www.kaggle.com/datasets/jaswar/physical-parameter-prediction).
+### Delfys75
+
+75 real-world videos across 5 physical systems (pendulum, Torricelli flow, sliding block, LED decay, free fall) with frame-wise object masks and parameter ground truth. Available on [Kaggle](https://www.kaggle.com/datasets/jaswar/physical-parameter-prediction).
+
+### IRIS
+
+A new dataset introduced in this work for multi-class physics recognition and parameter estimation. Available on [Hugging Face](https://huggingface.co/datasets/rasulkhanbayov/IRIS).
+
+IRIS covers **8 dynamics classes**:
+
+| Class | Description |
+|---|---|
+| `dropping_ball` | Ball released from rest under gravity |
+| `falling_ball` | Projectile / free-falling ball |
+| `sliding_cone` | Cone sliding on an inclined surface |
+| `pendulum` | Single pendulum oscillation |
+| `rotation` | Rotating object (camera fixed) |
+| `hitting_cones` | Collision between cones |
+| `two_moving_pendulums` | Two independently swinging pendulums |
+| `two_moving_pendulum_one_static` | Two-pendulum system with one at rest |
+
+To download IRIS and run evaluation:
+
+```bash
+# Download via Hugging Face CLI
+pip install huggingface_hub
+huggingface-cli download rasulkhanbayov/IRIS --repo-type dataset --local-dir ./IRIS
+
+# Convert to .npy tensors
+python src/utils/video2npy.py --input_dir ./IRIS --output_dir ./IRIS_npy
+
+# Run parameter estimation on IRIS
+python main.py --path ./IRIS_npy --outfolder results_iris --dt 0.0167
+```
+
+To train or evaluate the video dynamics classifier on IRIS:
+
+```bash
+# Train (25 epochs, 8 classes)
+python scripts/train_video_classifier.py --path ./IRIS --out Results/video_classifier_iris --iris --epochs 25 --batch 8
+
+# Evaluate
+python scripts/evaluate_video_classifier.py --path ./IRIS --checkpoint Results/video_classifier_iris/best.pt --out Results/video_classifier_eval_iris --iris
+```
 
 ---
 
@@ -171,4 +214,4 @@ Optional Weights & Biases logging. Set `log_wandb: True` in `config.yaml` and ru
 
 ## License
 
-[MIT](LICENSE)
+See LICENSE file for details.
