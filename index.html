@@ -1,578 +1,555 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IRIS: A Real-World Benchmark for Inverse Recovery and Identification of Physical Dynamic Systems</title>
-  <meta name="description" content="IRIS — 220-video benchmark for unsupervised physical parameter estimation from monocular video. ECCV 2026." />
+<html>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet" />
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="IRIS: A Real-World Benchmark for Inverse Recovery and Identification of Physical Dynamic Systems from Monocular Video">
+  <meta name="keywords" content="IRIS, physical parameter estimation, ODE, benchmark, monocular video, unsupervised">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IRIS Benchmark</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:       #0f1117;
-      --surface:  #1a1d27;
-      --border:   #2a2d3a;
-      --accent:   #6c8fff;
-      --accent2:  #a78bfa;
-      --text:     #e2e4ef;
-      --muted:    #8b8fa8;
-      --radius:   12px;
-    }
-
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
+      font-family: 'Noto Sans', sans-serif;
     }
 
-    /* ─── layout ─── */
-    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+    }
 
-    section { padding: 64px 0; }
-    section + section { border-top: 1px solid var(--border); }
+    .publication-authors {
+      font-family: 'Google Sans', sans-serif;
+    }
 
-    /* ─── header / hero ─── */
-    header {
-      background: linear-gradient(160deg, #131623 0%, #0f1117 60%);
-      border-bottom: 1px solid var(--border);
-      padding: 80px 0 60px;
+    .publication-authors a {
+      color: hsl(204, 86%, 53%);
+    }
+
+    .publication-authors a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      background-color: #ffffff;
       text-align: center;
+      padding: 1.5rem;
     }
 
-    .venue-badge {
-      display: inline-block;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      color: #fff;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: .06em;
-      padding: 4px 16px;
-      border-radius: 999px;
-      margin-bottom: 24px;
-    }
-
-    h1 {
-      font-size: clamp(1.5rem, 4vw, 2.25rem);
-      font-weight: 700;
-      line-height: 1.25;
-      max-width: 780px;
-      margin: 0 auto 32px;
-      background: linear-gradient(135deg, #e2e4ef 30%, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* authors */
-    .authors {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 6px 20px;
-      margin-bottom: 40px;
-    }
-    .authors span {
-      font-size: 15px;
-      color: var(--muted);
-    }
-    .authors span a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .authors span a:hover { color: var(--accent); }
-
-    /* link buttons */
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 22px;
-      border-radius: var(--radius);
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: opacity .2s, transform .15s;
-      white-space: nowrap;
-    }
-    .btn:hover { opacity: .85; transform: translateY(-1px); }
-
-    .btn-paper  { background: #b91c1c; color: #fff; }
-    .btn-code   { background: #1f2937; color: #fff; border: 1px solid var(--border); }
-    .btn-data   { background: #1e293b; color: #fff; border: 1px solid #334155; }
-
-    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
-
-    /* ─── teaser ─── */
-    .teaser {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      text-align: center;
-      padding: 40px 32px;
-      margin-top: 8px;
-    }
-    .teaser img { max-width: 100%; border-radius: 8px; }
-    .teaser p   { color: var(--muted); font-size: 14px; margin-top: 16px; }
-
-    /* ─── headings ─── */
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: var(--text);
-    }
-    h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-
-    /* ─── abstract ─── */
-    .abstract-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: var(--radius);
-      padding: 28px 32px;
-      font-size: 15.5px;
-      color: #c8cce0;
-      line-height: 1.8;
-    }
-
-    /* ─── contributions ─── */
-    .contrib-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-    }
-    .contrib-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-    }
-    .contrib-card .icon {
-      font-size: 26px;
-      margin-bottom: 12px;
-    }
-    .contrib-card p { font-size: 14.5px; color: var(--muted); }
-
-    /* ─── dataset stats ─── */
-    .stats-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 40px;
-    }
-    .stat-card {
-      flex: 1 1 140px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      text-align: center;
-    }
-    .stat-card .num {
-      font-size: 2rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .stat-card .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
-
-    /* dynamics table */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14.5px;
-    }
-    thead th {
-      text-align: left;
-      padding: 10px 16px;
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 13px;
-      letter-spacing: .04em;
-      border-bottom: 1px solid var(--border);
-    }
-    tbody tr { border-bottom: 1px solid var(--border); }
-    tbody tr:last-child { border-bottom: none; }
-    tbody td { padding: 11px 16px; color: var(--text); }
-    tbody td:first-child {
-      font-family: 'Source Code Pro', monospace;
-      font-size: 13px;
-      color: var(--accent2);
-    }
-    tbody tr:hover { background: rgba(108,143,255,.05); }
-
-    /* ─── BibTeX ─── */
-    .bibtex-wrap { position: relative; }
-    pre {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      font-family: 'Source Code Pro', monospace;
-      font-size: 13px;
-      color: #c8cce0;
-      overflow-x: auto;
-      line-height: 1.7;
-    }
-    .copy-btn {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--border);
-      border: none;
-      border-radius: 8px;
-      color: var(--muted);
-      font-size: 12px;
-      padding: 5px 12px;
-      cursor: pointer;
-      transition: background .2s;
-    }
-    .copy-btn:hover { background: var(--accent); color: #fff; }
-
-    /* ─── footer ─── */
-    footer {
-      text-align: center;
-      padding: 40px 24px;
-      color: var(--muted);
-      font-size: 13px;
-      border-top: 1px solid var(--border);
-    }
-    footer a { color: var(--accent); text-decoration: none; }
-
-    /* ─── gif gallery ─── */
-    .gif-gallery {
+    /* ── GIF gallery ── */
+    .gif-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
+      margin-top: 24px;
     }
-    .gif-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
+
+    .gif-cell {
       text-align: center;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fafafa;
     }
-    .gif-item img {
+
+    .gif-cell img {
       width: 100%;
-      height: 140px;
+      height: 130px;
       object-fit: cover;
       display: block;
     }
-    .gif-item .gif-label {
+
+    .gif-cell .gif-caption {
       font-size: 12px;
-      font-weight: 500;
-      color: var(--muted);
-      padding: 8px 6px;
-      letter-spacing: .02em;
+      font-weight: 600;
+      color: #555;
+      padding: 7px 4px;
+      background: #fff;
+      letter-spacing: 0.02em;
     }
 
-    /* ─── responsive ─── */
-    @media (max-width: 700px) {
-      .gif-gallery { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 768px) {
+      .gif-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
-    @media (max-width: 600px) {
-      header { padding: 56px 0 44px; }
-      .contrib-grid { grid-template-columns: 1fr; }
-      .stats-row { flex-direction: column; }
+
+    /* ── dataset stats ── */
+    .stat-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 2rem;
+    }
+
+    .stat-box {
+      text-align: center;
+      border: 2px solid #dbdbdb;
+      border-radius: 10px;
+      padding: 18px 28px;
+      min-width: 120px;
+    }
+
+    .stat-box .stat-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #3273dc;
+      line-height: 1;
+    }
+
+    .stat-box .stat-label {
+      font-size: 13px;
+      color: #777;
+      margin-top: 4px;
+    }
+
+    /* ── contribution cards ── */
+    .contrib-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 1.5rem;
+    }
+
+    .contrib-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      background: #fff;
+    }
+
+    .contrib-card .card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .contrib-card h4 {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: #222;
+    }
+
+    .contrib-card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* ── bibtex ── */
+    #BibTeX pre {
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      font-size: 13px;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .copy-bib-btn {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: #dbdbdb;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      padding: 4px 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .copy-bib-btn:hover {
+      background: #3273dc;
+      color: #fff;
+    }
+
+    /* ── dynamics table ── */
+    .dynamics-table {
+      font-size: 14.5px;
+    }
+
+    .dynamics-table td:first-child {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: #6a4fc3;
+      white-space: nowrap;
     }
   </style>
 </head>
+
 <body>
 
-<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
-<header>
-  <div class="container">
-    <div class="venue-badge">ECCV 2026</div>
+<!-- ══════════════════════════ HERO ══════════════════════════ -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
 
-    <h1>IRIS: A Real-World Benchmark for Inverse Recovery and Identification of Physical Dynamic Systems from Monocular Video</h1>
+          <h1 class="title is-1 publication-title">
+            IRIS: A Real-World Benchmark for Inverse Recovery and Identification of Physical Dynamic Systems from Monocular Video
+          </h1>
 
-    <div class="authors">
-      <span><a href="#">Rasul Khanbayov</a></span>
-      <span><a href="#">Mohamed Rayan Barhdadi</a></span>
-      <span><a href="#">Dr. Erchin Serpedin</a></span>
-      <span><a href="#">Dr. Hasan Kurban</a></span>
-    </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="#">Rasul Khanbayov</a>,&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="#">Mohamed Rayan Barhdadi</a>,&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="#">Dr. Erchin Serpedin</a>,&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="#">Dr. Hasan Kurban</a>
+            </span>
+          </div>
 
-    <div class="links">
-      <!-- arXiv -->
-      <a class="btn btn-paper" href="https://arxiv.org/abs/2603.16432" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
-        </svg>
-        Paper (arXiv)
-      </a>
+          <div class="column has-text-centered">
+            <div class="publication-links">
 
-      <!-- GitHub -->
-      <a class="btn btn-code" href="https://github.com/KurbanIntelligenceLab/iris-benchmark.github.io" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
-        </svg>
-        Code
-      </a>
+              <!-- arXiv -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2603.16432"
+                   class="external-link button is-normal is-rounded is-dark"
+                   target="_blank" rel="noopener">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
 
-      <!-- HuggingFace -->
-      <a class="btn btn-data" href="https://huggingface.co/datasets/rasulkhanbayov/IRIS" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-          <text y="20" font-size="20">🤗</text>
-        </svg>
-        Dataset (HuggingFace)
-      </a>
-    </div>
-  </div>
-</header>
+              <!-- Code -->
+              <span class="link-block">
+                <a href="https://github.com/KurbanIntelligenceLab/iris-benchmark.github.io"
+                   class="external-link button is-normal is-rounded is-dark"
+                   target="_blank" rel="noopener">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
 
-<!-- ═══════════════════════════ TEASER ═══════════════════════════ -->
-<section>
-  <div class="container">
-    <p style="color:var(--muted); text-align:center; margin-bottom:24px;">
-      IRIS captures 220 high-resolution videos of physical phenomena — from pendulums and falling balls to rotating objects and collisions — each with measured ground-truth parameters.
-    </p>
-    <div class="gif-gallery">
-      <div class="gif-item">
-        <img src="gifs/Dropping_ball.gif" alt="Dropping Ball" loading="lazy" />
-        <div class="gif-label">Dropping Ball</div>
-      </div>
-      <div class="gif-item">
-        <img src="gifs/Falling_ball.gif" alt="Falling Ball" loading="lazy" />
-        <div class="gif-label">Falling Ball</div>
-      </div>
-      <div class="gif-item">
-        <img src="gifs/Sliding_cone.gif" alt="Sliding Cone" loading="lazy" />
-        <div class="gif-label">Sliding Cone</div>
-      </div>
-      <div class="gif-item">
-        <img src="gifs/pendulum.gif" alt="Pendulum" loading="lazy" />
-        <div class="gif-label">Pendulum</div>
-      </div>
-      <div class="gif-item">
-        <img src="gifs/Rotation.gif" alt="Rotation" loading="lazy" />
-        <div class="gif-label">Rotation</div>
-      </div>
-      <div class="gif-item">
-        <img src="gifs/Hitting_cones.gif" alt="Hitting Cones" loading="lazy" />
-        <div class="gif-label">Hitting Cones</div>
-      </div>
-      <div class="gif-item">
-        <img src="gifs/Two_Moving_Pendulums.gif" alt="Two Moving Pendulums" loading="lazy" />
-        <div class="gif-label">Two Moving Pendulums</div>
-      </div>
-      <div class="gif-item">
-        <img src="gifs/Two_Moving_Pendulum_One_Static.gif" alt="Two Pendulums (One Static)" loading="lazy" />
-        <div class="gif-label">Two Pendulums (One Static)</div>
+              <!-- Dataset -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/rasulkhanbayov/IRIS"
+                   class="external-link button is-normal is-rounded is-dark"
+                   target="_blank" rel="noopener">
+                  <span class="icon">
+                    <i class="fa fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════ ABSTRACT ═══════════════════════════ -->
-<section>
-  <div class="container">
-    <h2>Abstract</h2>
-    <div class="abstract-box">
-      Existing methods for unsupervised physical parameter estimation from video lack standardized evaluation protocols and rely on non-overlapping synthetic datasets or limited real-world data. We address this gap by introducing <strong>IRIS</strong>, a new benchmark comprising <strong>220 high-resolution videos</strong> capturing both single and multi-body physical dynamics with measured ground-truth parameters. IRIS establishes evaluation criteria spanning parameter accuracy, identifiability, extrapolation, robustness, and equation-family selection. We test multiple baseline approaches — including physics-informed loss functions and four equation-identification strategies — and release the dataset, annotations, evaluation toolkit, and all baseline implementations publicly.
+
+<!-- ══════════════════════════ TEASER ══════════════════════════ -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <p style="font-size: 20px; color: black; text-align: center;">
+        We introduce <b>IRIS</b> — a real-world benchmark of <b>220 high-resolution videos</b> across
+        <b>8 physical dynamics classes</b>, each with precisely measured ground-truth parameters.
+        IRIS enables standardized evaluation of unsupervised physical parameter estimation from monocular video,
+        covering single and multi-body systems.
+      </p>
+
+      <div class="gif-grid" style="margin-top: 2rem;">
+        <div class="gif-cell">
+          <img src="gifs/Dropping_ball.gif" alt="Dropping Ball" loading="lazy">
+          <div class="gif-caption">Dropping Ball</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/Falling_ball.gif" alt="Falling Ball" loading="lazy">
+          <div class="gif-caption">Falling Ball</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/Sliding_cone.gif" alt="Sliding Cone" loading="lazy">
+          <div class="gif-caption">Sliding Cone</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/pendulum.gif" alt="Pendulum" loading="lazy">
+          <div class="gif-caption">Pendulum</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/Rotation.gif" alt="Rotation" loading="lazy">
+          <div class="gif-caption">Rotation</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/Hitting_cones.gif" alt="Hitting Cones" loading="lazy">
+          <div class="gif-caption">Hitting Cones</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/Two_Moving_Pendulums.gif" alt="Two Moving Pendulums" loading="lazy">
+          <div class="gif-caption">Two Moving Pendulums</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/Two_Moving_Pendulum_One_Static.gif" alt="Two Pendulums (One Static)" loading="lazy">
+          <div class="gif-caption">Two Pendulums (One Static)</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════ CONTRIBUTIONS ═══════════════════════════ -->
-<section>
-  <div class="container">
-    <h2>Key Contributions</h2>
-    <div class="contrib-grid">
 
-      <div class="contrib-card">
-        <div class="icon">📹</div>
-        <h3>220-Video Real-World Benchmark</h3>
-        <p>High-resolution videos covering single and multi-body physical systems, each with precisely measured ground-truth parameters — not estimated from simulations.</p>
+<!-- ══════════════════════════ ABSTRACT ══════════════════════════ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 18px; color: #333;">
+            Existing methods for unsupervised physical parameter estimation from video lack standardized
+            evaluation protocols and rely on non-overlapping synthetic datasets or limited real-world data.
+            We address this gap by introducing <b>IRIS</b>, a new benchmark comprising <b>220 high-resolution
+            videos</b> capturing both single and multi-body physical dynamics with measured ground-truth
+            parameters. IRIS establishes evaluation criteria spanning parameter accuracy, identifiability,
+            extrapolation, robustness, and equation-family selection. We test multiple baseline approaches —
+            including physics-informed loss functions and four equation-identification strategies — and release
+            the dataset, annotations, evaluation toolkit, and all baseline implementations publicly.
+          </p>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
 
+
+<!-- ══════════════════════════ CONTRIBUTIONS ══════════════════════════ -->
+<section class="section" style="background: #fafafa; padding-top: 3rem; padding-bottom: 3rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Key Contributions</h2>
+      </div>
+    </div>
+    <div class="contrib-cards">
       <div class="contrib-card">
-        <div class="icon">📐</div>
-        <h3>Standardized Evaluation Protocol</h3>
+        <div class="card-icon">📹</div>
+        <h4>220-Video Real-World Benchmark</h4>
+        <p>High-resolution videos of single and multi-body physical systems with precisely <em>measured</em> ground-truth parameters — not estimated from simulations.</p>
+      </div>
+      <div class="contrib-card">
+        <div class="card-icon">📐</div>
+        <h4>Standardized Evaluation Protocol</h4>
         <p>Evaluation criteria for parameter accuracy, identifiability, extrapolation capability, robustness to noise, and equation-family selection accuracy.</p>
       </div>
-
       <div class="contrib-card">
-        <div class="icon">🧠</div>
-        <h3>Equation-Family Selection</h3>
+        <div class="card-icon">🧠</div>
+        <h4>Equation-Family Selection</h4>
         <p>Four strategies for automatically identifying which ODE governs the observed dynamics — including VLM-based and classifier-based approaches — benchmarked head-to-head.</p>
       </div>
-
       <div class="contrib-card">
-        <div class="icon">🔬</div>
-        <h3>Physics-Informed Baselines</h3>
-        <p>Full baseline implementations with 1-step and multi-step physics loss, unified single/multi-body model, and corrected gradient-compatible Euler integrator.</p>
+        <div class="card-icon">🔬</div>
+        <h4>Physics-Informed Baselines</h4>
+        <p>Full baseline implementations with 1-step and multi-step physics loss, unified single/multi-body model, and a corrected gradient-compatible Euler integrator.</p>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════ DATASET ═══════════════════════════ -->
-<section>
-  <div class="container">
-    <h2>The IRIS Dataset</h2>
 
-    <div class="stats-row">
-      <div class="stat-card">
-        <div class="num">220</div>
-        <div class="label">Real-World Videos</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">8</div>
-        <div class="label">Dynamics Classes</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">GT</div>
-        <div class="label">Measured Parameters</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">HD</div>
-        <div class="label">High Resolution</div>
+<!-- ══════════════════════════ DATASET ══════════════════════════ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">The IRIS Dataset</h2>
       </div>
     </div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Dynamics Class</th>
-          <th>Physical System</th>
-          <th>Estimated Parameters</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>dropping_ball</td>
-          <td>Ball released from rest under gravity</td>
-          <td>gravitational acceleration g</td>
-        </tr>
-        <tr>
-          <td>falling_ball</td>
-          <td>Projectile / free-falling ball</td>
-          <td>gravitational acceleration g</td>
-        </tr>
-        <tr>
-          <td>sliding_cone</td>
-          <td>Cone sliding on an inclined surface</td>
-          <td>friction coefficient μ</td>
-        </tr>
-        <tr>
-          <td>pendulum</td>
-          <td>Single pendulum oscillation</td>
-          <td>rope length, damping coefficient</td>
-        </tr>
-        <tr>
-          <td>rotation</td>
-          <td>Rotating object (fixed camera)</td>
-          <td>camera-to-object distance</td>
-        </tr>
-        <tr>
-          <td>hitting_cones</td>
-          <td>Collision between cones</td>
-          <td>friction / restitution params</td>
-        </tr>
-        <tr>
-          <td>two_moving_pendulums</td>
-          <td>Two independently swinging pendulums</td>
-          <td>rope lengths, damping</td>
-        </tr>
-        <tr>
-          <td>two_moving_pendulum_one_static</td>
-          <td>Two-pendulum system, one at rest</td>
-          <td>rope lengths, coupling</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="stat-boxes">
+      <div class="stat-box">
+        <div class="stat-num">220</div>
+        <div class="stat-label">Real-World Videos</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Dynamics Classes</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">GT</div>
+        <div class="stat-label">Measured Parameters</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">HD</div>
+        <div class="stat-label">High Resolution</div>
+      </div>
+    </div>
 
-    <div style="margin-top:24px;">
-      <a class="btn btn-data" href="https://huggingface.co/datasets/rasulkhanbayov/IRIS" target="_blank" rel="noopener" style="display:inline-flex;">
-        🤗 &nbsp; Download on Hugging Face
+    <div class="content">
+      <table class="table is-fullwidth is-hoverable dynamics-table">
+        <thead>
+          <tr>
+            <th>Dynamics Class</th>
+            <th>Physical System</th>
+            <th>Estimated Parameters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>dropping_ball</td>
+            <td>Ball released from rest under gravity</td>
+            <td>gravitational acceleration <em>g</em></td>
+          </tr>
+          <tr>
+            <td>falling_ball</td>
+            <td>Projectile / free-falling ball</td>
+            <td>gravitational acceleration <em>g</em></td>
+          </tr>
+          <tr>
+            <td>sliding_cone</td>
+            <td>Cone sliding on an inclined surface</td>
+            <td>friction coefficient μ</td>
+          </tr>
+          <tr>
+            <td>pendulum</td>
+            <td>Single pendulum oscillation</td>
+            <td>rope length, damping coefficient</td>
+          </tr>
+          <tr>
+            <td>rotation</td>
+            <td>Rotating object (fixed camera)</td>
+            <td>camera-to-object distance</td>
+          </tr>
+          <tr>
+            <td>hitting_cones</td>
+            <td>Collision between cones</td>
+            <td>friction / restitution params</td>
+          </tr>
+          <tr>
+            <td>two_moving_pendulums</td>
+            <td>Two independently swinging pendulums</td>
+            <td>rope lengths, damping</td>
+          </tr>
+          <tr>
+            <td>two_moving_pendulum_one_static</td>
+            <td>Two-pendulum system, one at rest</td>
+            <td>rope lengths, coupling</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="has-text-centered" style="margin-top: 1.5rem;">
+      <a href="https://huggingface.co/datasets/rasulkhanbayov/IRIS"
+         class="button is-normal is-rounded is-dark"
+         target="_blank" rel="noopener">
+        <span class="icon"><i class="fa fa-database"></i></span>
+        <span>Download on Hugging Face</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════ METHOD ═══════════════════════════ -->
-<section>
-  <div class="container">
-    <h2>Method Overview</h2>
-    <p style="color:var(--muted); margin-bottom:32px;">The pipeline operates in two stages without requiring manual labelling or knowledge of the governing ODE in advance.</p>
 
-    <div class="contrib-grid">
-      <div class="contrib-card">
-        <div class="icon">🔍</div>
-        <h3>Stage 1 — Equation Selection</h3>
-        <p>A Vision-Language Model (VLM) or a ResNet-18 video classifier watches the video frames and selects the governing ODE from the IRIS library. The fine-tuned classifier achieves 100% accuracy on the evaluation set.</p>
+<!-- ══════════════════════════ METHOD ══════════════════════════ -->
+<section class="section" style="background: #fafafa; padding-top: 3rem; padding-bottom: 3rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method Overview</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 18px; color: #333;">
+            The pipeline operates in two stages without requiring manual labelling or
+            prior knowledge of the governing ODE.
+          </p>
+        </div>
       </div>
-      <div class="contrib-card">
-        <div class="icon">⚙️</div>
-        <h3>Stage 2 — Parameter Estimation</h3>
-        <p>An MLP encoder maps video frames into a latent state. A physics block rolls out the selected ODE and optimizes physical parameters (α, β) via a multi-step physics loss across horizons 1–5.</p>
+    </div>
+
+    <div class="columns is-centered" style="margin-top: 1rem;">
+      <div class="column">
+        <div class="contrib-card" style="height:100%;">
+          <div class="card-icon">🔍</div>
+          <h4>Stage 1 — Equation-Family Selection</h4>
+          <p style="font-size: 15px; color: #555;">
+            A Vision-Language Model (VLM) or a fine-tuned ResNet-18 video classifier watches
+            the video frames and selects the governing ODE from the IRIS library.
+            Four strategies are benchmarked: path-based keywords, basic VLM, enhanced VLM
+            (5-frame temporal reasoning), and the fine-tuned classifier — which achieves
+            <b>100% accuracy</b> on the evaluation set.
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="contrib-card" style="height:100%;">
+          <div class="card-icon">⚙️</div>
+          <h4>Stage 2 — Parameter Estimation</h4>
+          <p style="font-size: 15px; color: #555;">
+            An MLP encoder maps video frames into a latent state. A physics block rolls out
+            the selected ODE and optimizes physical parameters (α, β) by minimizing a
+            <b>multi-step physics loss</b> over rollout horizons 1–5. A unified
+            graph-structured model handles both single-body and multi-body systems with
+            symplectic or corrected Euler integration.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════ BIBTEX ═══════════════════════════ -->
-<section>
-  <div class="container">
-    <h2>Citation</h2>
-    <div class="bibtex-wrap">
-      <button class="copy-btn" onclick="copyBib()">Copy</button>
-      <pre id="bibtex">@inproceedings{khanbayov2026iris,
-  title     = {{IRIS}: A Real-World Benchmark for Inverse Recovery and
-               Identification of Physical Dynamic Systems from Monocular Video},
-  author    = {Khanbayov, Rasul and Barhdadi, Mohamed Rayan and
-               Serpedin, Erchin and Kurban, Hasan},
-  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2603.16432}
-}</pre>
+
+<!-- ══════════════════════════ BIBTEX ══════════════════════════ -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div style="position: relative;">
+      <button class="copy-bib-btn" onclick="copyBib()">Copy</button>
+      <pre><code id="bibtex-code">@misc{khanbayov2026iris,
+  title         = {{IRIS}: A Real-World Benchmark for Inverse Recovery and
+                   Identification of Physical Dynamic Systems from Monocular Video},
+  author        = {Rasul Khanbayov and Mohamed Rayan Barhdadi and
+                   Erchin Serpedin and Hasan Kurban},
+  year          = {2026},
+  eprint        = {2603.16432},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2603.16432},
+}</code></pre>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
-<footer>
-  <div class="container">
-    <p>
-      <a href="https://arxiv.org/abs/2603.16432">Paper</a> &nbsp;·&nbsp;
-      <a href="https://github.com/KurbanIntelligenceLab/iris-benchmark.github.io">Code</a> &nbsp;·&nbsp;
-      <a href="https://huggingface.co/datasets/rasulkhanbayov/IRIS">Dataset</a>
-    </p>
-    <p style="margin-top:12px;">ECCV 2026 &nbsp;·&nbsp; IRIS Benchmark</p>
-  </div>
-</footer>
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<div class="footer">
+  <p style="font-size: 13px; color: gray;">
+    <a href="https://arxiv.org/abs/2603.16432">Paper</a> &nbsp;·&nbsp;
+    <a href="https://github.com/KurbanIntelligenceLab/iris-benchmark.github.io">Code</a> &nbsp;·&nbsp;
+    <a href="https://huggingface.co/datasets/rasulkhanbayov/IRIS">Dataset</a>
+  </p>
+  <p style="font-size: 12px; color: #aaa; margin-top: 8px;">
+    IRIS Benchmark &nbsp;·&nbsp;
+    Page template inspired by <a href="https://glab-caltech.github.io/steer3d/" style="color:#aaa;">Steer3D</a>.
+  </p>
+</div>
 
 <script>
   function copyBib() {
-    const text = document.getElementById('bibtex').innerText;
+    const text = document.getElementById('bibtex-code').innerText;
     navigator.clipboard.writeText(text).then(() => {
-      const btn = document.querySelector('.copy-btn');
+      const btn = document.querySelector('.copy-bib-btn');
       btn.textContent = 'Copied!';
       setTimeout(() => btn.textContent = 'Copy', 2000);
     });
