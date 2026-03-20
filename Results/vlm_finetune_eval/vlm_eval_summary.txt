@@ -1,0 +1,4 @@
+Adapter: Results/vlm_finetune/adapter
+Total: 90
+Correct: 15
+Accuracy: 16.67%

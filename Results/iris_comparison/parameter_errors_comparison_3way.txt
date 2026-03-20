@@ -1,0 +1,36 @@
+Comparison: Baseline vs Unified (1-step) vs Unified (multi-step)
+Diff_Base_Multi = multistep_err - baseline_err (negative = multistep better).
+Diff_Unif_Multi = multistep_err - unif_err (negative = multistep better than 1-step).
+====================================================================================================
+Dynamics       Setting      Param      GT       Base_|E| Unif_|E| Multi_|E| Diff_B-M Diff_U-M
+----------------------------------------------------------------------------------------------------
+dropping_ball  drop_100     g          9.8066   2.2594   7.2075   8.2830   6.0236   1.0755  
+dropping_ball  drop_150     g          9.8066   3.8266   8.9282   8.8618   5.0352   -0.0663 
+dropping_ball  drop_50      g          9.8066   1.0400   6.4765   6.8811   5.8411   0.4046  
+falling_ball   big          g          9.8066   4.2635   7.3031   6.4005   2.1370   -0.9026 
+falling_ball   mid          g          9.8066   6.6261   6.8323   8.6312   2.0051   1.7989  
+falling_ball   small        g          9.8066   4.1321   7.8429   6.8753   2.7433   -0.9675 
+pendulum       pendulum_20  rope_length 0.5000   0.5565   0.8404   0.3967   -0.1597  -0.4436 
+pendulum       pendulum_45  rope_length 0.5000   0.3441   0.8358   1.1605   0.8163   0.3246  
+pendulum       pendulum_90  rope_length 0.5000   0.6044   1.4620   21.9492  21.3448  20.4872 
+rotation       fast         angular_damping 0.0800   0.8839   0.0856   1.2779   0.3940   1.1923  
+rotation       fast         angular_stiffness 0.1000   1.5423   3.0959   2.4573   0.9150   -0.6386 
+rotation       mid          angular_damping 0.0500   0.3863   1.2041   1.3792   0.9929   0.1752  
+rotation       mid          angular_stiffness 0.1000   3.0295   5.1893   3.9820   0.9524   -1.2073 
+rotation       slow         angular_damping 0.0300   0.4483   0.4491   0.0566   -0.3916  -0.3925 
+rotation       slow         angular_stiffness 0.1000   1.5932   6.7354   4.6256   3.0325   -2.1097 
+sliding_cone   cone_45      angle_deg  45.0000  0.0000   0.0000   0.0000   0.0000   0.0000  
+sliding_cone   cone_60      angle_deg  60.0000  0.0000   0.0000   0.0000   0.0000   0.0000  
+sliding_cone   cone_80      angle_deg  80.0000  0.0000   0.0000   0.0000   0.0000   0.0000  
+two_moving_pendulum_one_static pendulum_20  rope_length_1 0.5000   1.3797   2.0375   65.3824  64.0027  63.3448 
+two_moving_pendulum_one_static pendulum_20  rope_length_2 0.5000   1.3797   2.0375   65.3824  64.0027  63.3448 
+two_moving_pendulum_one_static pendulum_45  rope_length_1 0.5000   0.7671   0.4768   96.7572  95.9901  96.2804 
+two_moving_pendulum_one_static pendulum_45  rope_length_2 0.5000   0.7671   0.4768   96.7572  95.9901  96.2804 
+two_moving_pendulum_one_static pendulum_90  rope_length_1 0.5000   1.0625   0.8378   164.8441 163.7816 164.0063
+two_moving_pendulum_one_static pendulum_90  rope_length_2 0.5000   1.0625   0.8378   164.8441 163.7816 164.0063
+two_moving_pendulums pendulum_20  rope_length_1 0.5000   1.1434   8.7351   741.1099 739.9664 732.3748
+two_moving_pendulums pendulum_20  rope_length_2 0.5000   1.1434   8.7351   741.1099 739.9664 732.3748
+two_moving_pendulums pendulum_45  rope_length_1 0.5000   1.6300   1.7193   164.1013 162.4713 162.3820
+two_moving_pendulums pendulum_45  rope_length_2 0.5000   1.6300   1.7193   164.1013 162.4713 162.3820
+two_moving_pendulums pendulum_90  rope_length_1 0.5000   3.0106   2.1633   149.9281 146.9176 147.7649
+two_moving_pendulums pendulum_90  rope_length_2 0.5000   3.0106   2.1633   149.9281 146.9176 147.7649

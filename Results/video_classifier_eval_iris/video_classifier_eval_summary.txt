@@ -1,0 +1,6 @@
+Video classifier dynamics evaluation
+Checkpoint: Results/video_classifier_iris/best.pt
+Data path: ./IRIS
+Total videos: 240
+Accuracy: 100.00%
+Per-class accuracy: {'dropping_ball': 1.0, 'falling_ball': 1.0, 'hitting_cones': 1.0, 'pendulum': 1.0, 'rotation': 1.0, 'sliding_cone': 1.0, 'two_moving_pendulum_one_static': 1.0, 'two_moving_pendulums': 1.0}

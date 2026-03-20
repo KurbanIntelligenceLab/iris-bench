@@ -1,0 +1,29 @@
+Comparison: Baseline (main.py) vs Unified (run_unified_delfys75.py)
+Negative diff_err = unified has lower error (better).
+================================================================================
+Dynamics         Setting        Param        GT         Unif_est   Unif_|Err| Base_est   Base_|Err| Diff_err  
+--------------------------------------------------------------------------------
+dropped_ball     large          g            9.8066     9.9857     0.2484     9.9857     0.2484     0.0000    
+dropped_ball     medium         g            9.8066     10.1015    0.4863     10.1015    0.4863     0.0000    
+dropped_ball     small          g            9.8066     9.4203     0.5338     9.4203     0.5338     0.0000    
+free_fall        mousepad       g            9.8066     7.0363     2.7703     9.5101     3.6567     -0.8863   
+free_fall        table          g            9.8066     9.8275     0.1530     8.7516     1.0550     -0.9020   
+free_fall        tennis         g            9.8066     9.4943     0.5113     9.1377     1.0576     -0.5464   
+led              led_10s        decay        0.4600     0.0000     0.4600     0.0000     0.4600     0.0000    
+led              led_2s         decay        2.3000     0.4000     1.9000     0.0000     2.3000     -0.4000   
+led              led_5s         decay        0.9200     0.0000     0.9200     0.0000     0.9200     0.0000    
+pendulum         pendulum_150   damping      -0.0592    -1.0000    0.9408     -0.1822    0.1230     0.8178    
+pendulum         pendulum_150   length_m     1.5000     72.7686    71.8686    31.0335    29.5335    42.3352   
+pendulum         pendulum_45    damping      -0.0592    -0.9638    0.9046     -0.6439    0.5847     0.3199    
+pendulum         pendulum_45    length_m     0.4500     24.0996    23.6496    95.2045    94.7545    -71.1049  
+pendulum         pendulum_90    damping      -0.0592    -0.3476    0.2883     -0.3476    0.2883     0.0000    
+pendulum         pendulum_90    length_m     0.9000     51.2649    50.3649    51.2649    50.3649    0.0000    
+sliding_block    high           angle_deg    30.0000    30.0000    0.0000     30.0000    0.0000     0.0000    
+sliding_block    high           friction     0.2076     10.0000    9.7924     10.0000    9.7924     0.0000    
+sliding_block    low            angle_deg    20.0000    20.0000    0.0000     20.0000    0.0000     0.0000    
+sliding_block    low            friction     0.2076     10.0000    9.7924     10.0000    9.7924     0.0000    
+sliding_block    mid            angle_deg    25.0000    25.0000    0.0000     25.0000    0.0000     0.0000    
+sliding_block    mid            friction     0.2076     10.0000    9.7924     10.0000    9.7924     0.0000    
+torricelli       large          k            0.0162     6.2852     6.2690     6.2852     6.2690     0.0000    
+torricelli       medium         k            0.0128     9.9371     9.9242     9.9371     9.9242     0.0000    
+torricelli       small          k            0.0096     7.1644     7.1587     7.1644     7.1587     0.0000    

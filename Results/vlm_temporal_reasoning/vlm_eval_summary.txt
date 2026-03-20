@@ -1,0 +1,5 @@
+VLM IMPROVED dynamics evaluation (enhanced prompt + 5 frames)
+Data path: ./delfys75
+Total videos: 90
+Accuracy: 73.33%
+Per-class accuracy: {'dropped_ball': 0.6666666666666666, 'free_fall': 0.0, 'led': 1.0, 'pendulum': 0.7333333333333333, 'sliding_block': 1.0, 'torricelli': 1.0}

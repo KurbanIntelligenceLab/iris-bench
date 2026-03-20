@@ -1,0 +1,10 @@
+,dropping_ball,falling_ball,hitting_cones,led,pendulum,rotation,sliding_cone,two_moving_pendulum_one_static,two_moving_pendulums
+dropping_ball,20,7,0,0,1,2,0,0,0
+falling_ball,25,1,0,0,4,0,0,0,0
+hitting_cones,0,0,22,1,0,5,1,1,0
+led,0,0,0,0,0,0,0,0,0
+pendulum,0,1,0,0,29,0,0,0,0
+rotation,0,0,0,1,0,29,0,0,0
+sliding_cone,0,0,0,0,0,0,29,0,1
+two_moving_pendulum_one_static,1,0,0,0,6,0,0,23,0
+two_moving_pendulums,0,0,1,0,5,0,0,2,22

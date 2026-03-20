@@ -1,0 +1,4 @@
+Checkpoint/Adapter: Results/vlm_finetune_classifier/classifier.pt
+Total: 90
+Correct: 15
+Accuracy: 16.67%

@@ -1,0 +1,11 @@
+IRIS equation-selection (dynamics classification) summary
+========================================================
+Dataset: IRIS, 240 videos, 8 classes
+========================================================
+
+Method                        Accuracy (%)   Notes
+----------------------------------------------------------------------
+VLM (temporal reasoning)      65.00         One call, 7 frames, IRIS-extended prompt
+VLM (describe-then-classify)  72.92         Two API calls; IRIS-extended
+CNN (8-class on IRIS)         ---           Train with --iris, then evaluate with --iris
+----------------------------------------------------------------------

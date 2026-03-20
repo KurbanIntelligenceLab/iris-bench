@@ -1,0 +1,29 @@
+Comparison: Ours vs Baseline (paper/other run)
+Negative diff_err = our model has lower error (better).
+================================================================================
+Dynamics       Setting        Param      GT       Ours_est   Ours_|Err| Base_est   Base_|Err| Diff_err  
+--------------------------------------------------------------------------------
+dropped_ball   large          g          9.8066   9.9246     0.1764     9.9857     0.2484     -0.0720
+dropped_ball   medium         g          9.8066   10.0572    0.4524     10.1015    0.4863     -0.0339
+dropped_ball   small          g          9.8066   9.4502     0.4725     9.4203     0.5338     -0.0613
+free_fall      mousepad       g          9.8066   9.7754     1.6522     11.8876    2.1192     -0.4670
+free_fall      table          g          9.8066   9.7707     0.1521     8.7516     1.0550     -0.9029
+free_fall      tennis         g          9.8066   9.4154     0.5283     9.1377     1.0576     -0.5293
+led            led_10s        decay      0.4600   7.9216     7.4616     2.5516     2.0916     5.3701
+led            led_2s         decay      2.3000   9.8738     7.5738     9.7490     7.4490     0.1248
+led            led_5s         decay      0.9200   9.3613     8.4413     9.3558     8.4358     0.0055
+pendulum       pendulum_150   damping    -0.0592  0.8319     0.8911     0.1822     0.2415     0.6496
+pendulum       pendulum_150   length_m   1.5000   1.1279     1.1804     0.3160     1.1840     -0.0036
+pendulum       pendulum_45    damping    -0.0592  0.7856     0.8449     0.6439     0.7031     0.1417
+pendulum       pendulum_45    length_m   0.4500   0.5340     0.5009     0.1030     0.3470     0.1540
+pendulum       pendulum_90    damping    -0.0592  0.3058     0.3650     0.3476     0.4068     -0.0418
+pendulum       pendulum_90    length_m   0.9000   0.1932     0.7068     0.1913     0.7087     -0.0019
+sliding_block  high           angle_deg  30.0000  90.0000    60.0000    90.0000    60.0000    0.0000
+sliding_block  high           friction   0.2076   10.0000    9.7924     10.0000    9.7924     0.0000
+sliding_block  low            angle_deg  20.0000  90.0000    70.0000    90.0000    70.0000    0.0000
+sliding_block  low            friction   0.2076   10.0000    9.7924     10.0000    9.7924     0.0000
+sliding_block  mid            angle_deg  25.0000  90.0000    65.0000    90.0000    65.0000    0.0000
+sliding_block  mid            friction   0.2076   10.0000    9.7924     10.0000    9.7924     0.0000
+torricelli     large          k          0.0162   6.5522     6.5360     6.2852     6.2690     0.2670
+torricelli     medium         k          0.0128   9.9396     9.9268     9.9371     9.9242     0.0025
+torricelli     small          k          0.0096   9.7094     9.6999     8.9556     8.9460     0.7539

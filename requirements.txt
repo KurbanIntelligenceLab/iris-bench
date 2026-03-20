@@ -1,0 +1,28 @@
+--index-url https://download.pytorch.org/whl/cu121
+--extra-index-url https://pypi.org/simple
+
+# Core deep learning
+torch
+torchvision
+
+# Config management
+omegaconf
+
+# Data & numerics
+numpy
+scikit-learn
+
+# Visualization
+matplotlib
+
+# Video processing
+opencv-python
+
+# Image processing
+Pillow
+
+# VLM / OpenRouter API (Stage 1: equation-family selection)
+openai
+
+# Experiment tracking (optional — set log_wandb: True in config.yaml)
+wandb

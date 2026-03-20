@@ -1,0 +1,19 @@
+Delfys75 equation-selection (dynamics classification) comparison
+================================================================
+Dataset: Delfys75, 90 videos, 6 classes (dropped_ball, free_fall, led, pendulum, sliding_block, torricelli)
+================================================================
+
+Method                    Accuracy (%)   Notes
+--------------------------------------------------------------------------------
+VLM temporal reasoning    73.33          One call, first-vs-last frame (5 frames)
+Describe-then-classify    61.11          Two VLM calls: describe motion, then classify from text
+CNN (video classifier)    98.40          ResNet18 + temporal mean, trained on Delfys75
+VLM finetune (adapter)    16.67          LoRA adapter on VLM (collapse to one class)
+VLM finetune (classifier) 16.67          Frozen VLM + classifier head (collapse to one class)
+--------------------------------------------------------------------------------
+
+Sources:
+  temporal reasoning:  Results/vlm_temporal_reasoning/vlm_eval_summary.txt
+  describe-then-class: Results/vlm_describe_then_classify/vlm_eval_summary.txt
+  CNN:                  Results/video_classifier_eval (user-reported 98.4%)
+  VLM finetune:         Results/vlm_finetune_eval, Results/vlm_classifier_eval

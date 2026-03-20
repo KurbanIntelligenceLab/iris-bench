@@ -1,0 +1,6 @@
+VLM (improved) on IRIS dataset
+Data path: ./IRIS
+use_iris_classes: True
+Total videos: 240
+Evaluated: 240
+Accuracy: 65.00%

@@ -1,0 +1,36 @@
+Parameter evaluation (Baseline)
+============================================================
+Dynamics         Setting        Param        GT         Est        |Err|      RelErr     N
+------------------------------------------------------------
+dropped_ball     large          g            9.8066     9.9857     0.2484     0.0253     5
+dropped_ball     medium         g            9.8066     10.1015    0.4863     0.0496     5
+dropped_ball     small          g            9.8066     9.4203     0.5338     0.0544     5
+free_fall        mousepad       g            9.8066     11.8876    2.1192     0.2161     4
+free_fall        table          g            9.8066     8.7516     1.0550     0.1076     5
+free_fall        tennis         g            9.8066     9.1377     1.0576     0.1079     5
+led              led_10s        decay        0.4600     2.5516     2.0916     4.5469     5
+led              led_2s         decay        2.3000     9.7490     7.4490     3.2387     5
+led              led_5s         decay        0.9200     9.3558     8.4358     9.1693     5
+pendulum         pendulum_150   damping      -0.0592    0.1822     0.2415     4.0757     5
+pendulum         pendulum_150   length_m     1.5000     0.3160     1.1840     0.7893     5
+pendulum         pendulum_45    damping      -0.0592    0.6439     0.7031     11.8688    5
+pendulum         pendulum_45    length_m     0.4500     0.1030     0.3470     0.7710     5
+pendulum         pendulum_90    damping      -0.0592    0.3476     0.4068     6.8667     5
+pendulum         pendulum_90    length_m     0.9000     0.1913     0.7087     0.7874     5
+sliding_block    high           angle_deg    30.0000    90.0000    60.0000    2.0000     5
+sliding_block    high           friction     0.2076     10.0000    9.7924     47.1763    5
+sliding_block    low            angle_deg    20.0000    90.0000    70.0000    3.5000     5
+sliding_block    low            friction     0.2076     10.0000    9.7924     47.1763    5
+sliding_block    mid            angle_deg    25.0000    90.0000    65.0000    2.6000     5
+sliding_block    mid            friction     0.2076     10.0000    9.7924     47.1763    5
+torricelli       large          k            0.0162     6.2852     6.2690     386.9261   5
+torricelli       medium         k            0.0128     9.9371     9.9242     773.7342   5
+torricelli       small          k            0.0096     8.9556     8.9460     936.3893   4
+
+Mean absolute error by dynamics:
+  dropped_ball: 0.4228
+  free_fall: 1.4106
+  led: 5.9921
+  pendulum: 0.5985
+  sliding_block: 37.3962
+  torricelli: 8.3797

@@ -1,0 +1,9 @@
+,dropping_ball,falling_ball,hitting_cones,pendulum,rotation,sliding_cone,two_moving_pendulum_one_static,two_moving_pendulums
+dropping_ball,0,30,0,0,0,0,0,0
+falling_ball,23,0,0,7,0,0,0,0
+hitting_cones,0,0,30,0,0,0,0,0
+pendulum,0,0,0,28,0,0,1,1
+rotation,0,0,0,0,30,0,0,0
+sliding_cone,0,0,0,2,0,28,0,0
+two_moving_pendulum_one_static,0,0,0,1,0,0,19,10
+two_moving_pendulums,0,0,0,1,0,0,8,21

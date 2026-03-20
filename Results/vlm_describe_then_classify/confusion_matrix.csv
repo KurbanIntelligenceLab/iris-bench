@@ -1,0 +1,7 @@
+,dropped_ball,free_fall,led,pendulum,sliding_block,torricelli
+dropped_ball,15,0,0,0,0,0
+free_fall,2,0,0,3,10,0
+led,0,2,9,4,0,0
+pendulum,4,0,0,8,2,1
+sliding_block,0,0,0,3,12,0
+torricelli,1,0,0,3,0,11

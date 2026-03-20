@@ -1,0 +1,6 @@
+Video classifier dynamics evaluation
+Checkpoint: Results/video_classifier/best.pt
+Data path: ./delfys75
+Total videos: 90
+Accuracy: 100.00%
+Per-class accuracy: {'dropped_ball': 1.0, 'free_fall': 1.0, 'led': 1.0, 'pendulum': 1.0, 'sliding_block': 1.0, 'torricelli': 1.0}

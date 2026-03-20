@@ -1,0 +1,24 @@
+VLM improved (enhanced prompt + 5 frames)
+Total: 90  Correct: 66  Accuracy: 73.33%
+
+Confusion matrix (rows=GT, cols=pred):
+['dropped_ball', 'free_fall', 'led', 'pendulum', 'sliding_block', 'torricelli']
+[[13  2  0  0  0  0]
+ [ 2  0  0 11  2  0]
+ [ 0  1 14  0  0  0]
+ [ 1  5  0  9  0  0]
+ [ 0  0  0  0 15  0]
+ [ 0  0  0  0  0 15]]
+
+               precision    recall  f1-score   support
+
+ dropped_ball       0.81      0.87      0.84        15
+    free_fall       0.00      0.00      0.00        15
+          led       1.00      0.93      0.97        15
+     pendulum       0.45      0.60      0.51        15
+sliding_block       0.88      1.00      0.94        15
+   torricelli       1.00      1.00      1.00        15
+
+     accuracy                           0.73        90
+    macro avg       0.69      0.73      0.71        90
+ weighted avg       0.69      0.73      0.71        90

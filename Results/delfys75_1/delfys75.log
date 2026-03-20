@@ -1,0 +1,632 @@
+No GPU found or GPU is not being utilized.
+Processing ./delfys75\dropped_ball\large\01\01.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\large\01\01.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\large\02\02.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\large\02\02.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\large\03\03.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\large\03\03.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\large\04\04.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\large\04\04.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\large\05\05.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\large\05\05.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\medium\01\01.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\medium\01\01.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\medium\02\02.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\medium\02\02.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\medium\03\03.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\medium\03\03.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\medium\04\04.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\medium\04\04.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\medium\05\05.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\medium\05\05.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\small\01\01.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\small\01\01.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\small\02\02.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\small\02\02.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\small\03\03.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\small\03\03.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\small\04\04.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\small\04\04.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\dropped_ball\small\05\05.npy...
+Found dynamics keyword: dropped_ball
+Current dynamics: dropped_ball
+Error processing ./delfys75\dropped_ball\small\05\05.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\mousepad\01\01.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\mousepad\01\01.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\mousepad\02\02.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\mousepad\02\02.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\mousepad\03\03.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\mousepad\03\03.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\mousepad\04\04.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\mousepad\04\04.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\mousepad\05\05.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\mousepad\05\05.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\table\01\01.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\table\01\01.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\table\02\02.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\table\02\02.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\table\03\03.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\table\03\03.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\table\04\04.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\table\04\04.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\table\05\05.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\table\05\05.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\tennis\01\01.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\tennis\01\01.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\tennis\02\02.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\tennis\02\02.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\tennis\03\03.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\tennis\03\03.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\tennis\04\04.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\tennis\04\04.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\free_fall\tennis\05\05.npy...
+Found dynamics keyword: free_fall
+Current dynamics: free_fall
+Error processing ./delfys75\free_fall\tennis\05\05.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\led\led_10s\01\01.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (540, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9764705882352941
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_10s\01\01.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_10s\02\02.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (540, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9803921568627451
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_10s\02\02.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_10s\03\03.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (540, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9764705882352941
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_10s\03\03.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_10s\04\04.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (540, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9803921568627451
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_10s\04\04.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_10s\05\05.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (540, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9803921568627451
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_10s\05\05.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_2s\01\01.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (60, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9764705882352941
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_2s\01\01.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_2s\02\02.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (60, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9764705882352941
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_2s\02\02.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_2s\03\03.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (60, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9647058823529412
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_2s\03\03.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_2s\04\04.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (60, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9725490196078431
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_2s\04\04.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_2s\05\05.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (60, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9764705882352941
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_2s\05\05.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_5s\01\01.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (240, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9764705882352941
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_5s\01\01.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_5s\02\02.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (240, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9803921568627451
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_5s\02\02.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_5s\03\03.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (240, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9764705882352941
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_5s\03\03.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_5s\04\04.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (240, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9764705882352941
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_5s\04\04.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\led\led_5s\05\05.npy...
+Found dynamics keyword: led
+Current dynamics: led
+Data shape:  (240, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.984313725490196
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\led\led_5s\05\05.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_150\01\01.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (540, 10, 1, 56, 100)
+Data range: 
+Min:  0.15294117647058825 
+Max:  0.6901960784313725
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_150\01\01.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_150\02\02.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (858, 10, 1, 56, 100)
+Data range: 
+Min:  0.00392156862745098 
+Max:  0.6980392156862745
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_150\02\02.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_150\03\03.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (705, 10, 1, 56, 100)
+Data range: 
+Min:  0.17647058823529413 
+Max:  0.7019607843137254
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_150\03\03.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_150\04\04.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (853, 10, 1, 56, 100)
+Data range: 
+Min:  0.16862745098039217 
+Max:  0.6941176470588235
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_150\04\04.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_150\05\05.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (1205, 10, 1, 56, 100)
+Data range: 
+Min:  0.17254901960784313 
+Max:  0.6941176470588235
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_150\05\05.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_45\01\01.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (494, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.6431372549019608
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_45\01\01.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_45\02\02.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (584, 10, 1, 56, 100)
+Data range: 
+Min:  0.24705882352941178 
+Max:  0.6274509803921569
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_45\02\02.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_45\03\03.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (514, 10, 1, 56, 100)
+Data range: 
+Min:  0.2 
+Max:  0.6274509803921569
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_45\03\03.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_45\04\04.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (562, 10, 1, 56, 100)
+Data range: 
+Min:  0.23137254901960785 
+Max:  0.6352941176470588
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_45\04\04.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_45\05\05.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (410, 10, 1, 56, 100)
+Data range: 
+Min:  0.23137254901960785 
+Max:  0.6392156862745098
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_45\05\05.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_90\01\01.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (917, 10, 1, 56, 100)
+Data range: 
+Min:  0.21568627450980393 
+Max:  0.6196078431372549
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_90\01\01.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_90\02\02.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (889, 10, 1, 56, 100)
+Data range: 
+Min:  0.2235294117647059 
+Max:  0.6196078431372549
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_90\02\02.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_90\03\03.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (732, 10, 1, 56, 100)
+Data range: 
+Min:  0.2196078431372549 
+Max:  0.6196078431372549
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_90\03\03.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_90\04\04.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (1241, 10, 1, 56, 100)
+Data range: 
+Min:  0.2235294117647059 
+Max:  0.6196078431372549
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_90\04\04.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\pendulum\pendulum_90\05\05.npy...
+Found dynamics keyword: pendulum
+Current dynamics: pendulum
+Data shape:  (550, 10, 1, 56, 100)
+Data range: 
+Min:  0.21568627450980393 
+Max:  0.6196078431372549
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\pendulum\pendulum_90\05\05.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\sliding_block\high\01\01.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\high\01\01.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\high\02\02.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\high\02\02.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\high\03\03.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\high\03\03.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\high\04\04.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\high\04\04.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\high\05\05.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\high\05\05.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\low\01\01.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\low\01\01.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\low\02\02.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\low\02\02.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\low\03\03.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\low\03\03.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\low\04\04.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\low\04\04.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\low\05\05.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\low\05\05.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\mid\01\01.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\mid\01\01.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\mid\02\02.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\mid\02\02.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\mid\03\03.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\mid\03\03.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\mid\04\04.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\mid\04\04.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\sliding_block\mid\05\05.npy...
+Found dynamics keyword: sliding_block
+Current dynamics: sliding_block
+Error processing ./delfys75\sliding_block\mid\05\05.npy: too many indices for array: array is 1-dimensional, but 4 were indexed
+Processing ./delfys75\torricelli\large\01\01.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (1178, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9647058823529412
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\large\01\01.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\large\02\02.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (1140, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9686274509803922
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\large\02\02.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\large\03\03.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (1161, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9764705882352941
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\large\03\03.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\large\04\04.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (1158, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9764705882352941
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\large\04\04.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\large\05\05.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (1158, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9450980392156862
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\large\05\05.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\medium\01\01.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (1454, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9529411764705882
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\medium\01\01.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\medium\02\02.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (1496, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.8980392156862745
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\medium\02\02.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\medium\03\03.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (1483, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9294117647058824
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\medium\03\03.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\medium\04\04.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (1485, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9137254901960784
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\medium\04\04.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\medium\05\05.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (1481, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9372549019607843
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\medium\05\05.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\small\01\01.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (2002, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9607843137254902
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\small\01\01.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\small\02\02.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (2039, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9764705882352941
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\small\02\02.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\small\03\03.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (2012, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9647058823529412
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\small\03\03.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\small\04\04.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (2034, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9490196078431372
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\small\04\04.npy: No API key configured. Use `wandb login` to log in.
+Processing ./delfys75\torricelli\small\05\05.npy...
+Found dynamics keyword: torricelli
+Current dynamics: torricelli
+Data shape:  (1951, 10, 1, 56, 100)
+Data range: 
+Min:  0.0 
+Max:  0.9803921568627451
+dt 0.05
+Using device: cpu
+Error processing ./delfys75\torricelli\small\05\05.npy: No API key configured. Use `wandb login` to log in.
+Data successfully written to delfys75
