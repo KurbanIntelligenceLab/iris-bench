@@ -263,7 +263,37 @@
     }
     footer a { color: var(--accent); text-decoration: none; }
 
+    /* ─── gif gallery ─── */
+    .gif-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .gif-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-align: center;
+    }
+    .gif-item img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+    }
+    .gif-item .gif-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 8px 6px;
+      letter-spacing: .02em;
+    }
+
     /* ─── responsive ─── */
+    @media (max-width: 700px) {
+      .gif-gallery { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 600px) {
       header { padding: 56px 0 44px; }
       .contrib-grid { grid-template-columns: 1fr; }
@@ -283,8 +313,8 @@
     <div class="authors">
       <span><a href="#">Rasul Khanbayov</a></span>
       <span><a href="#">Mohamed Rayan Barhdadi</a></span>
-      <span><a href="#">Erchin Serpedin</a></span>
-      <span><a href="#">Hasan Kurban</a></span>
+      <span><a href="#">Dr. Erchin Serpedin</a></span>
+      <span><a href="#">Dr. Hasan Kurban</a></span>
     </div>
 
     <div class="links">
@@ -318,10 +348,42 @@
 <!-- ═══════════════════════════ TEASER ═══════════════════════════ -->
 <section>
   <div class="container">
-    <div class="teaser">
-      <!-- Replace src with your teaser figure / GIF -->
-      <p style="color:var(--muted); font-size:15px;">[ Teaser figure / GIF ]</p>
-      <p>IRIS captures 220 high-resolution videos of physical phenomena — from pendulums and falling balls to rotating objects and collisions — each with measured ground-truth parameters.</p>
+    <p style="color:var(--muted); text-align:center; margin-bottom:24px;">
+      IRIS captures 220 high-resolution videos of physical phenomena — from pendulums and falling balls to rotating objects and collisions — each with measured ground-truth parameters.
+    </p>
+    <div class="gif-gallery">
+      <div class="gif-item">
+        <img src="gifs/Dropping_ball.gif" alt="Dropping Ball" loading="lazy" />
+        <div class="gif-label">Dropping Ball</div>
+      </div>
+      <div class="gif-item">
+        <img src="gifs/Falling_ball.gif" alt="Falling Ball" loading="lazy" />
+        <div class="gif-label">Falling Ball</div>
+      </div>
+      <div class="gif-item">
+        <img src="gifs/Sliding_cone.gif" alt="Sliding Cone" loading="lazy" />
+        <div class="gif-label">Sliding Cone</div>
+      </div>
+      <div class="gif-item">
+        <img src="gifs/pendulum.gif" alt="Pendulum" loading="lazy" />
+        <div class="gif-label">Pendulum</div>
+      </div>
+      <div class="gif-item">
+        <img src="gifs/Rotation.gif" alt="Rotation" loading="lazy" />
+        <div class="gif-label">Rotation</div>
+      </div>
+      <div class="gif-item">
+        <img src="gifs/Hitting_cones.gif" alt="Hitting Cones" loading="lazy" />
+        <div class="gif-label">Hitting Cones</div>
+      </div>
+      <div class="gif-item">
+        <img src="gifs/Two_Moving_Pendulums.gif" alt="Two Moving Pendulums" loading="lazy" />
+        <div class="gif-label">Two Moving Pendulums</div>
+      </div>
+      <div class="gif-item">
+        <img src="gifs/Two_Moving_Pendulum_One_Static.gif" alt="Two Pendulums (One Static)" loading="lazy" />
+        <div class="gif-label">Two Pendulums (One Static)</div>
+      </div>
     </div>
   </div>
 </section>
