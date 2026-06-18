@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="IRIS: A Real-World Benchmark for Inverse Recovery and Identification of Physical Dynamic Systems from Monocular Video">
+  <meta name="keywords" content="IRIS, physical parameter estimation, ODE, benchmark, monocular video, unsupervised">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IRIS Benchmark</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+    }
+
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+    }
+
+    .publication-authors {
+      font-family: 'Google Sans', sans-serif;
+    }
+
+    .publication-authors a {
+      color: hsl(204, 86%, 53%);
+    }
+
+    .publication-authors a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    /* ── GIF gallery ── */
+    .gif-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .gif-cell {
+      text-align: center;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fafafa;
+    }
+
+    .gif-cell img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gif-cell .gif-caption {
+      font-size: 12px;
+      font-weight: 600;
+      color: #555;
+      padding: 7px 4px;
+      background: #fff;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 768px) {
+      .gif-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ── dataset stats ── */
+    .stat-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 2rem;
+    }
+
+    .stat-box {
+      text-align: center;
+      border: 2px solid #dbdbdb;
+      border-radius: 10px;
+      padding: 18px 28px;
+      min-width: 120px;
+    }
+
+    .stat-box .stat-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #3273dc;
+      line-height: 1;
+    }
+
+    .stat-box .stat-label {
+      font-size: 13px;
+      color: #777;
+      margin-top: 4px;
+    }
+
+    /* ── contribution cards ── */
+    .contrib-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 1.5rem;
+    }
+
+    .contrib-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      background: #fff;
+    }
+
+    .contrib-card .card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .contrib-card h4 {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: #222;
+    }
+
+    .contrib-card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* ── bibtex ── */
+    #BibTeX pre {
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      font-size: 13px;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .copy-bib-btn {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: #dbdbdb;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      padding: 4px 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .copy-bib-btn:hover {
+      background: #3273dc;
+      color: #fff;
+    }
+
+    /* ── dynamics table ── */
+    .dynamics-table {
+      font-size: 14.5px;
+    }
+
+    .dynamics-table td:first-child {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: #6a4fc3;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ══════════════════════════ HERO ══════════════════════════ -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <h1 class="title is-1 publication-title">
+            IRIS: A Real-World Benchmark for Inverse Recovery and Identification of Physical Dynamic Systems from Monocular Video
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/rasulkhanbayov/" target="_blank" rel="noopener">Rasul Khanbayov</a>,&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/bmrayan/" target="_blank" rel="noopener">Mohamed Rayan Barhdadi</a>,&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/erchin-serpedin-ab3164155/" target="_blank" rel="noopener">Dr. Erchin Serpedin</a>,&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/hasan-kurban-ph-d-8071a038/" target="_blank" rel="noopener">Dr. Hasan Kurban</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors" style="margin-top: 0.75rem;">
+            <span class="author-block" style="color: #c0392b; font-weight: 600;">Accepted to ECCV 2026</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+              <!-- arXiv -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2603.16432"
+                   class="external-link button is-normal is-rounded is-dark"
+                   target="_blank" rel="noopener">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <!-- Code -->
+              <span class="link-block">
+                <a href="https://github.com/KurbanIntelligenceLab/iris-benchmark.github.io"
+                   class="external-link button is-normal is-rounded is-dark"
+                   target="_blank" rel="noopener">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+
+              <!-- Dataset -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/rasulkhanbayov/IRIS"
+                   class="external-link button is-normal is-rounded is-dark"
+                   target="_blank" rel="noopener">
+                  <span class="icon">
+                    <i class="fa fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════ TEASER ══════════════════════════ -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <p style="font-size: 20px; color: black; text-align: center;">
+        We introduce <b>IRIS</b> — a real-world benchmark of <b>220 high-resolution videos</b> across
+        <b>8 physical dynamics classes</b>, each with precisely measured ground-truth parameters.
+        IRIS enables standardized evaluation of unsupervised physical parameter estimation from monocular video,
+        covering single and multi-body systems.
+      </p>
+
+      <div class="gif-grid" style="margin-top: 2rem;">
+        <div class="gif-cell">
+          <img src="gifs/Dropping_ball.gif" alt="Dropping Ball" loading="lazy">
+          <div class="gif-caption">Dropping Ball</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/Falling_ball.gif" alt="Falling Ball" loading="lazy">
+          <div class="gif-caption">Falling Ball</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/Sliding_cone.gif" alt="Sliding Cone" loading="lazy">
+          <div class="gif-caption">Sliding Cone</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/pendulum.gif" alt="Pendulum" loading="lazy">
+          <div class="gif-caption">Pendulum</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/Rotation.gif" alt="Rotation" loading="lazy">
+          <div class="gif-caption">Rotation</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/Hitting_cones.gif" alt="Hitting Cones" loading="lazy">
+          <div class="gif-caption">Hitting Cones</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/Two_Moving_Pendulums.gif" alt="Two Moving Pendulums" loading="lazy">
+          <div class="gif-caption">Two Moving Pendulums</div>
+        </div>
+        <div class="gif-cell">
+          <img src="gifs/Two_Moving_Pendulum_One_Static.gif" alt="Two Pendulums (One Static)" loading="lazy">
+          <div class="gif-caption">Two Pendulums (One Static)</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════ ABSTRACT ══════════════════════════ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 18px; color: #333;">
+            Existing methods for unsupervised physical parameter estimation from video lack standardized
+            evaluation protocols and rely on non-overlapping synthetic datasets or limited real-world data.
+            We address this gap by introducing <b>IRIS</b>, a new benchmark comprising <b>220 high-resolution
+            videos</b> capturing both single and multi-body physical dynamics with measured ground-truth
+            parameters. IRIS establishes evaluation criteria spanning parameter accuracy, identifiability,
+            extrapolation, robustness, and equation-family selection. We test multiple baseline approaches —
+            including physics-informed loss functions and four equation-identification strategies — and release
+            the dataset, annotations, evaluation toolkit, and all baseline implementations publicly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════ CONTRIBUTIONS ══════════════════════════ -->
+<section class="section" style="background: #fafafa; padding-top: 3rem; padding-bottom: 3rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Key Contributions</h2>
+      </div>
+    </div>
+    <div class="contrib-cards">
+      <div class="contrib-card">
+        <div class="card-icon">📹</div>
+        <h4>220-Video Real-World Benchmark</h4>
+        <p>High-resolution videos of single and multi-body physical systems with precisely <em>measured</em> ground-truth parameters — not estimated from simulations.</p>
+      </div>
+      <div class="contrib-card">
+        <div class="card-icon">📐</div>
+        <h4>Standardized Evaluation Protocol</h4>
+        <p>Evaluation criteria for parameter accuracy, identifiability, extrapolation capability, robustness to noise, and equation-family selection accuracy.</p>
+      </div>
+      <div class="contrib-card">
+        <div class="card-icon">🧠</div>
+        <h4>Equation-Family Selection</h4>
+        <p>Four strategies for automatically identifying which ODE governs the observed dynamics — including VLM-based and classifier-based approaches — benchmarked head-to-head.</p>
+      </div>
+      <div class="contrib-card">
+        <div class="card-icon">🔬</div>
+        <h4>Physics-Informed Baselines</h4>
+        <p>Full baseline implementations with 1-step and multi-step physics loss, unified single/multi-body model, and a corrected gradient-compatible Euler integrator.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════ DATASET ══════════════════════════ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">The IRIS Dataset</h2>
+      </div>
+    </div>
+
+    <div class="stat-boxes">
+      <div class="stat-box">
+        <div class="stat-num">220</div>
+        <div class="stat-label">Real-World Videos</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Dynamics Classes</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">GT</div>
+        <div class="stat-label">Measured Parameters</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">HD</div>
+        <div class="stat-label">High Resolution</div>
+      </div>
+    </div>
+
+    <div class="content">
+      <table class="table is-fullwidth is-hoverable dynamics-table">
+        <thead>
+          <tr>
+            <th>Dynamics Class</th>
+            <th>Physical System</th>
+            <th>Estimated Parameters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>dropping_ball</td>
+            <td>Ball released from rest under gravity</td>
+            <td>gravitational acceleration <em>g</em></td>
+          </tr>
+          <tr>
+            <td>falling_ball</td>
+            <td>Projectile / free-falling ball</td>
+            <td>gravitational acceleration <em>g</em></td>
+          </tr>
+          <tr>
+            <td>sliding_cone</td>
+            <td>Cone sliding on an inclined surface</td>
+            <td>friction coefficient μ</td>
+          </tr>
+          <tr>
+            <td>pendulum</td>
+            <td>Single pendulum oscillation</td>
+            <td>rope length, damping coefficient</td>
+          </tr>
+          <tr>
+            <td>rotation</td>
+            <td>Rotating object (fixed camera)</td>
+            <td>camera-to-object distance</td>
+          </tr>
+          <tr>
+            <td>hitting_cones</td>
+            <td>Collision between cones</td>
+            <td>friction / restitution params</td>
+          </tr>
+          <tr>
+            <td>two_moving_pendulums</td>
+            <td>Two independently swinging pendulums</td>
+            <td>rope lengths, damping</td>
+          </tr>
+          <tr>
+            <td>two_moving_pendulum_one_static</td>
+            <td>Two-pendulum system, one at rest</td>
+            <td>rope lengths, coupling</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="has-text-centered" style="margin-top: 1.5rem;">
+      <a href="https://huggingface.co/datasets/rasulkhanbayov/IRIS"
+         class="button is-normal is-rounded is-dark"
+         target="_blank" rel="noopener">
+        <span class="icon"><i class="fa fa-database"></i></span>
+        <span>Download on Hugging Face</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════ METHOD ══════════════════════════ -->
+<section class="section" style="background: #fafafa; padding-top: 3rem; padding-bottom: 3rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method Overview</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 18px; color: #333;">
+            The pipeline operates in two stages without requiring manual labelling or
+            prior knowledge of the governing ODE.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-top: 1rem;">
+      <div class="column">
+        <div class="contrib-card" style="height:100%;">
+          <div class="card-icon">🔍</div>
+          <h4>Stage 1 — Equation-Family Selection</h4>
+          <p style="font-size: 15px; color: #555;">
+            A Vision-Language Model (VLM) or a fine-tuned ResNet-18 video classifier watches
+            the video frames and selects the governing ODE from the IRIS library.
+            Four strategies are benchmarked: path-based keywords, basic VLM, enhanced VLM
+            (5-frame temporal reasoning), and the fine-tuned classifier — which achieves
+            <b>100% accuracy</b> on the evaluation set.
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="contrib-card" style="height:100%;">
+          <div class="card-icon">⚙️</div>
+          <h4>Stage 2 — Parameter Estimation</h4>
+          <p style="font-size: 15px; color: #555;">
+            An MLP encoder maps video frames into a latent state. A physics block rolls out
+            the selected ODE and optimizes physical parameters (α, β) by minimizing a
+            <b>multi-step physics loss</b> over rollout horizons 1–5. A unified
+            graph-structured model handles both single-body and multi-body systems with
+            symplectic or corrected Euler integration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════ BIBTEX ══════════════════════════ -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div style="position: relative;">
+      <button class="copy-bib-btn" onclick="copyBib()">Copy</button>
+      <pre><code id="bibtex-code">@misc{khanbayov2026iris,
+  title         = {{IRIS}: A Real-World Benchmark for Inverse Recovery and
+                   Identification of Physical Dynamic Systems from Monocular Video},
+  author        = {Rasul Khanbayov and Mohamed Rayan Barhdadi and
+                   Erchin Serpedin and Hasan Kurban},
+  year          = {2026},
+  eprint        = {2603.16432},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2603.16432},
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<div class="footer">
+  <p style="font-size: 13px; color: gray;">
+    <a href="https://arxiv.org/abs/2603.16432">Paper</a> &nbsp;·&nbsp;
+    <a href="https://github.com/KurbanIntelligenceLab/iris-benchmark.github.io">Code</a> &nbsp;·&nbsp;
+    <a href="https://huggingface.co/datasets/rasulkhanbayov/IRIS">Dataset</a>
+  </p>
+  <p style="font-size: 12px; color: #aaa; margin-top: 8px;">
+    IRIS Benchmark &nbsp;·&nbsp;
+    Page template inspired by <a href="https://glab-caltech.github.io/steer3d/" style="color:#aaa;">Steer3D</a>.
+  </p>
+</div>
+
+<script>
+  function copyBib() {
+    const text = document.getElementById('bibtex-code').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.copy-bib-btn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
