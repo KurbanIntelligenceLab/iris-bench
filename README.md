@@ -1,45 +1,48 @@
-# PhysExtraction: Identifying Equations and Physical Parameters from Video
+# IRIS: A Real-World Benchmark for Inverse Recovery and Identification of Physical Dynamic Systems from Monocular Video
 
-> ECCV 2026 Submission
+> **ECCV 2026**
 
-This repository contains the implementation of a two-stage pipeline that **automatically identifies both the governing equation and its physical parameters** from video, without relying on folder structure or manual labelling.
+[**📄 Paper (arXiv)**](https://arxiv.org/abs/2603.16432) · [**🌐 Project Page**](https://kurbanintelligencelab.github.io/iris-benchmark.github.io/) · [**🤗 Dataset**](https://huggingface.co/datasets/rasulkhanbayov/IRIS)
 
----
-
-## Overview
-
-Most prior work assumes you already know which ODE governs the system (e.g. pendulum, free fall). This project removes that assumption:
-
-**Stage 1 — Equation-family selection:** A Vision-Language Model (VLM) or a lightweight video classifier watches the video and selects which ODE from a library applies (pendulum, dropped ball, LED decay, free fall, sliding block, Torricelli flow).
-
-**Stage 2 — Parameter estimation:** An MLP encoder maps video frames into a latent space where a physics block fits the selected ODE and estimates physical parameters (e.g. gravity *g*, pendulum length, friction coefficient, decay rate).
+This repository contains the **IRIS benchmark** and the code for a two-stage pipeline that **automatically identifies both the governing equation and its physical parameters from video**, without relying on folder structure or manual labelling.
 
 ---
 
-## Key Contributions
+## TL;DR
 
-1. **Automatic equation-family selection from video** — VLM with temporal reasoning across 5 frames achieves ~73% accuracy on Delfys75; a fine-tuned video classifier achieves 100% on the evaluation set.
+Most prior work assumes you already know which ODE governs a system (e.g. pendulum, free fall). We remove that assumption:
 
-2. **Multi-step physics loss** — Instead of a 1-step MSE, we supervise rollouts at horizons 1..5 with weighted loss. Improves long-horizon consistency and parameter identifiability, especially for gravity and free-fall systems.
+- **Stage 1 — Equation-family selection:** A Vision-Language Model (VLM) or a fine-tuned video classifier watches the video and selects which ODE from a library applies.
+- **Stage 2 — Parameter estimation:** An encoder maps video frames into a latent space where a physics block fits the selected ODE and estimates physical parameters (e.g. gravity *g*, pendulum length, friction, decay rate).
 
-3. **Unified physics model** — A single graph-structured architecture handles both single-body and multi-body systems (linear coupling, contact, double pendulum). Includes a critical bug fix: the original Euler step did not pass gradients to physics parameters; the corrected update (`z_next = z + dt·ż + dt²·z̈`) makes training meaningful.
-
-4. **Reproducible evaluation vs ground truth** — Standardized CSV output and a comparison script that maps alpha/beta to physical parameters and reports errors against Delfys75 ground truth.
+We also introduce **IRIS**, a 4K real-world benchmark of **240 videos** across **8 dynamics classes** (single- and multi-body) with independently measured ground-truth parameters.
 
 ---
 
-## Supported Dynamics
+## The IRIS Dataset
 
-| Dynamics | Physical parameters |
-|---|---|
-| `pendulum` | length, damping |
-| `dropped_ball` / `bouncing_ball` | gravity *g* |
-| `free_fall` | gravity *g* |
-| `sliding_block` | friction coefficient |
-| `led` | decay rate |
-| `torricelli` | flow coefficient *k* |
-| `two_moving_pendulums` | length, coupling |
-| `rotation`, `sliding_cone`, `hitting_cones` | rotation / friction params |
+IRIS is hosted on Hugging Face: **https://huggingface.co/datasets/rasulkhanbayov/IRIS**
+
+- **240 videos** = 8 classes × 3 settings × 10 takes, at 3840×2160 / 60 fps
+- Ground-truth physical parameters per `(class, setting)` in `parameters.json`
+
+| Type | Class | Description |
+|---|---|---|
+| Single | `dropping_ball` | Ball released from rest under gravity |
+| Single | `falling_ball` | Free-falling balls of different sizes |
+| Single | `sliding_cone` | Cone sliding on an inclined surface |
+| Single | `pendulum` | Single pendulum oscillation |
+| Single | `rotation` | Rotating cone, fixed camera |
+| Multi | `hitting_cones` | Ball colliding with a pyramid of cones |
+| Multi | `two_moving_pendulums` | Two pendulums released together, colliding |
+| Multi | `two_moving_pendulum_one_static` | Moving pendulum strikes a static one |
+
+```bash
+pip install huggingface_hub
+huggingface-cli download rasulkhanbayov/IRIS --repo-type dataset --local-dir ./IRIS
+```
+
+We also evaluate on **Delfys75** (75 real videos, 5 systems), available on [Kaggle](https://www.kaggle.com/datasets/jaswar/physical-parameter-prediction).
 
 ---
 
@@ -48,170 +51,152 @@ Most prior work assumes you already know which ODE governs the system (e.g. pend
 ```bash
 conda env create -f environment.yml
 conda activate physextraction
+# or: pip install -r requirements.txt
 ```
 
 For VLM-based equation selection, set your OpenRouter API key:
 
 ```bash
-export OPENROUTER_API_KEY=your_key_here
+export OPENROUTER_API_KEY=your_key_here     # copy .env.example to .env
 ```
+
+**Tested with:** Python 3.12, PyTorch (CUDA 12.1), single NVIDIA GPU. See `requirements.txt` / `environment.yml` for pinned versions and `scripts/check_cuda.py` to verify your GPU setup.
 
 ---
 
-## Data Format
+## Reproducing the Paper
 
-Input data should be NumPy arrays of shape `(N, 10, 1, H, W)` — N clips, 10 frames each, 1 channel, height × width (default 56×100).
+All commands assume the IRIS videos are downloaded to `./IRIS` and Delfys75 to `./data`.
 
-To convert raw `.mp4` videos:
-
-```bash
-python src/utils/video2npy.py --input_dir videos/ --output_dir data/
-```
-
-### Delfys75
-
-75 real-world videos across 5 physical systems (pendulum, Torricelli flow, sliding block, LED decay, free fall) with frame-wise object masks and parameter ground truth. Available on [Kaggle](https://www.kaggle.com/datasets/jaswar/physical-parameter-prediction).
-
-### IRIS
-
-A new dataset introduced in this work for multi-class physics recognition and parameter estimation. Available on [Hugging Face](https://huggingface.co/datasets/rasulkhanbayov/IRIS).
-
-IRIS covers **8 dynamics classes**:
-
-| Class | Description |
-|---|---|
-| `dropping_ball` | Ball released from rest under gravity |
-| `falling_ball` | Projectile / free-falling ball |
-| `sliding_cone` | Cone sliding on an inclined surface |
-| `pendulum` | Single pendulum oscillation |
-| `rotation` | Rotating object (camera fixed) |
-| `hitting_cones` | Collision between cones |
-| `two_moving_pendulums` | Two independently swinging pendulums |
-| `two_moving_pendulum_one_static` | Two-pendulum system with one at rest |
-
-To download IRIS and run evaluation:
+### 1. Convert videos to tensors
 
 ```bash
-# Download via Hugging Face CLI
-pip install huggingface_hub
-huggingface-cli download rasulkhanbayov/IRIS --repo-type dataset --local-dir ./IRIS
-
-# Convert to .npy tensors
 python src/utils/video2npy.py --input_dir ./IRIS --output_dir ./IRIS_npy
-
-# Run parameter estimation on IRIS
-python main.py --path ./IRIS_npy --outfolder results_iris --dt 0.0167
 ```
 
-To train or evaluate the video dynamics classifier on IRIS:
+Input/output tensors have shape `(N, 10, 1, H, W)` — N clips, 10 frames, 1 channel, default 56×100.
+
+### 2. Equation-family selection (Table: routing accuracy)
 
 ```bash
-# Train (25 epochs, 8 classes)
-python scripts/train_video_classifier.py --path ./IRIS --out Results/video_classifier_iris --iris --epochs 25 --batch 8
+# VLM and CNN routing on IRIS (240 videos, 8 classes)
+bash scripts/run_iris_equation_selection_evals.sh
 
-# Evaluate
+# Train / evaluate the fine-tuned video classifier on IRIS
+python scripts/train_video_classifier.py    --path ./IRIS --out Results/video_classifier_iris --iris --epochs 25 --batch 8
 python scripts/evaluate_video_classifier.py --path ./IRIS --checkpoint Results/video_classifier_iris/best.pt --out Results/video_classifier_eval_iris --iris
 ```
 
----
-
-## Quick Start
-
-### Baseline (path-based dynamics, 1-step loss)
+### 3. Parameter estimation — baseline, unified, multi-step (main results)
 
 ```bash
-python main.py --path ./data --outfolder results_baseline --dt 0.05
-```
+# IRIS: baseline + unified model
+bash scripts/run_iris_baseline_and_unified.sh
 
-### With VLM equation selection (improved)
+# IRIS: multi-step physics loss
+bash scripts/run_iris_multistep_only.sh
 
-```bash
-python main.py --path ./data --outfolder results_vlm --dt 0.05 --vlm_improved
-```
+# Delfys75: baseline vs multi-step
+bash scripts/run_delfys75_baseline_vs_multistep.sh
 
-### With multi-step loss
-
-```bash
-python main.py --path ./data --outfolder results_multistep --dt 0.05 --loss latent_loss_multistep
-```
-
-### Unified model (single/multi-body, corrected Euler)
-
-```bash
-python scripts/run_unified_delfys75.py --path ./data --outfolder results_unified --dt 0.05
-```
-
-### Full baseline vs improved comparison
-
-```bash
+# Full baseline-vs-improved comparison
 bash scripts/run_baseline_vs_improved.sh ./data 0.05
 ```
 
-Results are written to `Results/` as CSVs. The comparison script produces `parameter_errors_comparison.txt` where a **negative Diff_err** means the improved run has lower error than the baseline.
+### 4. Compare against ground truth
+
+```bash
+python scripts/compare_baseline_unified.py     # maps fitted params to physical units, reports error vs GT
+```
+
+Outputs (CSVs, summaries, confusion matrices) are written under `Results/`. A **negative `Diff_err`** in `parameter_errors_comparison.txt` means the improved run beats the baseline. Reference outputs for every table in the paper are committed under [`Results/`](Results/) so you can diff your runs against ours.
+
+### 5. Rebuttal experiments
+
+Two additional studies requested during review. Reference outputs are committed; re-run to reproduce.
+
+```bash
+# Multi-clip vs. per-clip generalization (80/20 split per phenomenon).
+# Pass --iris_root to use real IRIS .npy data, or --synthetic for known-physics data.
+python scripts/run_multi_clip_iris.py --iris_root ./IRIS_npy --outfolder iris_multi_clip
+#   -> Results/iris_multi_clip/{iris_multi_clip.csv, per_clip_on_test_split.csv, table_iris_multi_clip.tex}
+#   Multi-clip beats per-clip on linear phenomena (e.g. dropping ball g: 0.207 -> 0.046)
+#   but fails on the nonlinear pendulum — the open problem IRIS surfaces.
+
+# Coupling-coefficient ablation for hitting cones (kappa=0 vs kappa=learned).
+# Self-contained: generates known-physics data, no flags needed.
+python scripts/run_hitting_cones_kappa_experiment.py
+#   -> Results/hitting_cones_reconstruction/{reconstruction_comparison.csv, kappa_consistency.csv, table_reconstruction.tex}
+#   Learned kappa reduces reconstruction MSE by 6-19%, confirming a real physical signal.
+```
+
+Both scripts use a fixed seed and resolve paths relative to the repo, so the committed numbers are reproducible.
 
 ---
 
-## Project Structure
+## Repository Structure
 
 ```
 .
-├── main.py                        # Entry point: two-stage pipeline
-├── config.yaml                    # Default training config
-├── config_unified.yaml            # Config for unified model
+├── main.py                     # Entry point: two-stage pipeline
+├── config.yaml                 # Default training config
+├── config_unified.yaml         # Config for the unified model
 ├── src/
-│   ├── models/
-│   │   ├── model.py               # EndPhys: encoder + physics block
-│   │   ├── PhysModels.py          # ODE physics blocks (alpha, beta)
-│   │   ├── unified_model.py       # Unified single/multi-body model
-│   │   ├── encoder_unified.py     # Encoder for unified model
-│   │   └── interaction_graph.py   # Graph-structured physics block
-│   ├── integrators/
-│   │   └── integrators.py         # Euler, Störmer-Verlet, RK4, Yoshida4
-│   ├── losses/
-│   │   └── loss.py                # 1-step and multi-step physics loss
-│   ├── utils/
-│   │   ├── video2npy.py           # Video-to-tensor conversion
-│   │   ├── vlm_dynamics.py        # VLM Stage 1 (basic)
-│   │   ├── vlm_improved/          # VLM Stage 1 (enhanced, 5 frames)
-│   │   ├── vlm_finetune/          # Fine-tuned VLM classifier
-│   │   └── video_classifier/      # ResNet-18 video classifier
-│   ├── analysis/
-│   │   ├── identifiability.py     # Parameter identifiability analysis
-│   │   └── energy_tracker.py      # Energy tracking utilities
-│   ├── loader.py                  # DataLoader utilities
-│   ├── train.py                   # Training loop
-│   └── loss_func.py               # Loss function factory
-├── scripts/
-│   ├── run_unified_delfys75.py    # Run unified model on Delfys75
-│   ├── run_baseline_vs_improved.sh  # Full comparison pipeline
-│   ├── compare_baseline_unified.py  # Compare runs vs GT
-│   ├── evaluate_vlm_dynamics.py   # Evaluate VLM accuracy
-│   └── train_video_classifier.py  # Train the video classifier
-├── Results/                       # Output CSVs, plots, model checkpoints
+│   ├── models/                 # Encoders, physics blocks, unified & graph models
+│   ├── integrators/            # Euler, Störmer-Verlet, RK4, Yoshida4
+│   ├── losses/                 # 1-step and multi-step physics loss
+│   ├── analysis/               # Identifiability & energy tracking
+│   └── utils/
+│       ├── video2npy.py        # Video → tensor conversion
+│       ├── vlm_dynamics.py     # VLM Stage 1 (basic)
+│       ├── vlm_improved/       # VLM Stage 1 (temporal, 5 frames)
+│       ├── vlm_finetune/       # Fine-tuned VLM classifier
+│       └── video_classifier/   # ResNet-18 video classifier
+├── scripts/                    # Training / evaluation / reproduction scripts
+│   ├── run_multi_clip_iris.py              # Rebuttal: multi-clip vs per-clip
+│   └── run_hitting_cones_kappa_experiment.py  # Rebuttal: kappa ablation
+├── Results/                    # Reference outputs matching the paper
+├── tests/                      # Unit tests (integrators, coupling, unified N=1)
+├── docs/                       # Project page (GitHub Pages source)
 ├── environment.yml
 └── requirements.txt
 ```
 
 ---
 
-## Integrators
+## Key Contributions
 
-Beyond the default Euler step, the unified model supports:
-
-- **Störmer-Verlet** — symplectic, conserves energy
-- **RK4** — 4th-order Runge-Kutta
-- **Yoshida4** — 4th-order symplectic
-
-Set via `config_unified.yaml`: `integrator: euler | verlet | rk4 | yoshida4`
+1. **Automatic equation-family selection from video** — temporal-reasoning VLM and a fine-tuned ResNet-18 classifier (100% on the IRIS evaluation set).
+2. **Multi-step physics loss** — rollout supervision over horizons 1–5 improves long-horizon consistency and parameter identifiability.
+3. **Unified physics model** — a single graph-structured architecture for both single- and multi-body systems, with a corrected gradient-passing Euler update.
+4. **IRIS benchmark** — 240 real-world 4K videos, 8 dynamics, with measured ground truth and a standardized evaluation protocol.
 
 ---
 
-## Logging
+## Tests
 
-Optional Weights & Biases logging. Set `log_wandb: True` in `config.yaml` and run `wandb login` before training.
+```bash
+pytest tests/
+```
 
 ---
 
 ## License
 
-See LICENSE file for details.
+- **Code:** MIT — see [`LICENSE.txt`](LICENSE.txt).
+- **IRIS dataset:** CC-BY-NC-4.0 (non-commercial), per the [Hugging Face dataset card](https://huggingface.co/datasets/rasulkhanbayov/IRIS).
+
+---
+
+## Citation
+
+```bibtex
+@inproceedings{khanbayov2026iris,
+  title     = {{IRIS}: A Real-World Benchmark for Inverse Recovery and Identification
+               of Physical Dynamic Systems from Monocular Video},
+  author    = {Khanbayov, Rasul and Barhdadi, Mohamed Rayan and
+               Serpedin, Erchin and Kurban, Hasan},
+  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
+  year      = {2026}
+}
+```

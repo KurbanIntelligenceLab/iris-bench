@@ -1,22 +1,52 @@
+# --- Data (lives on Hugging Face / Kaggle, not in git) ---
 *.npz
 *.npy
 *.avi
 *.mp4
-*.png
-*.gif
 *.mov
+
+# --- Large / binary image & vector assets (regenerable) ---
 *.svg
-*.pdf
-*.zip
 *.jpg
 *.ai
 *.eps
+*.zip
+# Ignore stray PNGs (e.g. Results/*.png run plots) but keep doc figures if any are added:
+*.png
+!docs/**/*.png
+
+# --- GIFs: ignore by default, but KEEP the project-page assets ---
+*.gif
+!docs/gifs/*.gif
+
+# --- JSON: ignore local/tool junk, but KEEP model/adapter configs ---
 *.json
+!**/adapter_config.json
+!**/parameters.json
+!**/config.json
+!**/tokenizer*.json
+!**/generation_config.json
+
+# --- Model checkpoints (keep released adapter via safetensors, ignore training ckpts) ---
+*.pt
+*.pth
+# (adapter_model.safetensors is intentionally tracked — not matched by the rules above)
+
+# --- Python ---
 *.pyc
+__pycache__/
+.venv/
+venv/
+*.egg-info/
+
+# --- Secrets: never commit a real .env (only .env.example is tracked) ---
+.env
+
+# --- Experiment tracking / local tooling ---
 wandb/
 *.wandb
 runs/
-*.pt
-*.pth
-*.mp4
+.claude/
+
+# --- OS ---
 .DS_Store

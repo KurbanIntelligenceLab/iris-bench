@@ -3,7 +3,7 @@ Evaluate trained video dynamics classifier on Delfys75 (same format as VLM evalu
 
 Usage:
   python scripts/evaluate_video_classifier.py --path ./delfys75 --checkpoint Results/video_classifier/best.pt --out Results/video_classifier_eval
-  python scripts/evaluate_video_classifier.py --path ./IRIS --checkpoint Results/video_classifier/best.pt --out Results/video_classifier_eval_iris --iris_6class
+  python scripts/evaluate_video_classifier.py --path ./IRIS --checkpoint Results/video_classifier_iris/best.pt --out Results/video_classifier_eval_iris --iris
 """
 
 import argparse

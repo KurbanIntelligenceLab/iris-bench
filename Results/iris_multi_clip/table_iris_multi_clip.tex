@@ -1,0 +1,29 @@
+\begin{table}[t]
+  \centering
+  \caption{%
+    \textbf{Multi-clip vs.\ per-clip training on IRIS (held-out 20\% test clips).}
+    For each phenomenon the clips are split 80/20 by sorted index.
+    \emph{Multi-clip} trains one shared encoder+physics model on the 80\%
+    train clips and evaluates on the 20\% held-out test clips.
+    \emph{Per-clip} trains independently on each test clip.
+    $\Delta$MAE $=$ Multi-clip $-$ Per-clip (negative = multi-clip better).
+  }
+  \label{tab:multi_clip_iris}
+  \resizebox{\linewidth}{!}{%
+  \begin{tabular}{llllrrrr}
+    \toprule
+    Phenomenon & Setting & Param & GT & \makecell{Per-clip\\MAE} & \makecell{Multi-clip\\MAE} & $\Delta$MAE & \#Test clips \\
+    \midrule
+    Dropping\_ball & drop\_50 & g & 9.8066 & 0.2071 & \textbf{0.0457} & -0.1614 & 6 \\
+    \midrule
+    Falling\_ball & small & g & 9.8066 & 0.2457 & \textbf{0.1659} & -0.0798 & 6 \\
+    \midrule
+    Pendulum & pendulum\_90 & rope\_length & 0.5000 & \textbf{0.5065} & 22.0607 & +21.5542 & 6 \\
+    \midrule
+    Rotation & slow & angular\_damping & 0.0300 & \textbf{0.6569} & 0.8508 & +0.1938 & 6 \\
+    Rotation & slow & angular\_stiffness & 0.1000 & 1.0366 & \textbf{0.5772} & -0.4594 & 6 \\
+    \midrule
+    Sliding\_cone & cone\_80 & angle\_deg & 80.0000 & \textbf{0.0000} & 0.0000 & +0.0000 & 6 \\
+    \bottomrule
+  \end{tabular}}
+\end{table}

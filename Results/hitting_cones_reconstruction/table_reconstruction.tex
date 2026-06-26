@@ -1,0 +1,14 @@
+\begin{table}[h]
+\centering
+\caption{Latent-space physics reconstruction MSE for the hitting-cones scenario under two conditions: $\kappa{=}0$ (no coupling; single-body inertial model) and $\kappa{=}\text{learned}$ (coupling coefficient estimated by the pipeline). The coupling term reduces reconstruction error by 6.0--19.0\% across all settings, demonstrating that $\kappa$ captures real physical interaction rather than fitting noise.}
+\label{tab:kappa_ablation}
+\begin{tabular}{lccc}
+\toprule
+Setting & $\kappa{=}0$ recon.\ MSE & $\kappa{=}\text{learned}$ recon.\ MSE & Reduction (\%) \\
+\midrule
+Slow & 0.07842 & 0.07373 & 6.0 \\
+Mid & 1.00493 & 0.81443 & 19.0 \\
+Fast & 0.27425 & 0.24533 & 10.5 \\
+\bottomrule
+\end{tabular}
+\end{table}

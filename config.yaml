@@ -1,16 +1,11 @@
+# Training config read by src/train.py, src/optimizer_Factory.py, src/loss_func.py.
+# Note: dt, data path, and loss are normally passed on the CLI to main.py;
+# the `loss` key below is only a fallback when no --loss is given.
 seed: 42
 optimize:
   optimizer: Adam
   lr: 0.001
 train:
   epochs: 500
-  batch_size: 64
-dataset:
-  path: MNIST
-  test_size: 0.2
-  train_size: 0.6
-  val_size: 0.2
-  num_workers: 2
-loss: custom
-image_size: 50
-log_wandb: False  # set True and run `wandb login` to log to Weights & Biases
+loss: latent_loss      # fallback loss (latent_loss = 1-step; latent_loss_multistep = multi-step)
+log_wandb: False       # set True and run `wandb login` to log to Weights & Biases

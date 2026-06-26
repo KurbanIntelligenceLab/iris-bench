@@ -195,19 +195,7 @@ def execute_experiment(path, dynamics, experiment_name, dt=0.01, loss_name="late
     print("Data shape: ", data_train.shape)
     print("Data range: \nMin: ", np.min(data_train), "\nMax: ", np.max(data_train)) 
     
-    if data_train.shape[0] < 16:
-        batch_size = 4
-    elif data_train.shape[0] <32:
-        batch_size = 8
-    elif data_train.shape[0] < 64:
-        batch_size = 16
-    elif data_train.shape[0] < 128:
-        batch_size = 32
-    elif data_train.shape[0] < 256:
-        batch_size = 64
-    else:
-        batch_size = 128
-    
+    # Fixed batch size of 128 for all runs (matches the reported experiments).
     batch_size = 128
 
     train_dataloader, test_dataloader, train_x, val_x  = loader.getLoader_folder(data_train, split=True, batch_size = batch_size)
@@ -456,8 +444,14 @@ def main():
     use_vlm = args.use_vlm or args.vlm_improved
     use_vlm_improved = args.vlm_improved
 
-    # Evaluate the expression safely
-    dt = eval(args.dt)
+    # Parse dt, accepting either a decimal ("0.05") or a fraction ("1/60").
+    # Avoids eval() on user input.
+    dt_str = args.dt.strip()
+    if "/" in dt_str:
+        num, den = dt_str.split("/", 1)
+        dt = float(num) / float(den)
+    else:
+        dt = float(dt_str)
 
     # Call your function with the specified or default output file name
     iterate_folders_and_process(args.path, output_folder=args.outfolder, dt=dt, use_vlm=use_vlm, use_vlm_improved=use_vlm_improved, loss_name=args.loss)
