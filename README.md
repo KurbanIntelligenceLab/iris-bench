@@ -200,3 +200,5 @@ pytest tests/
   year      = {2026}
 }
 ```
+
+<!-- repository metadata refresh -->
