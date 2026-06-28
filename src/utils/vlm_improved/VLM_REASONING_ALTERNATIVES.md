@@ -17,7 +17,7 @@ Fine-tuning VLMs for this 6-way dynamics task has not worked well (collapse to o
 | **Hierarchical** | First: "Is the motion periodic, one-directional, or other?" Then narrow (e.g. periodic → pendulum vs LED). | Smaller decisions; more calls or longer prompt. |
 | **Few-shot in prompt** | Add 1–2 short example descriptions per class in the system message. | Clearer anchors; uses more tokens. |
 | **Self-consistency** | Run the same prompt 3–5 times with temperature > 0; majority vote. | More robust; 3–5× API cost. |
-| **Stronger model** | Switch model (e.g. GPT-4o → Claude or Gemini) or use a dedicated vision model. | May improve without changing prompt. |
+| **Stronger model** | Switch model (e.g. GPT-4o → Gemini) or use a dedicated vision model. | May improve without changing prompt. |
 
 ## Recommendation
 
