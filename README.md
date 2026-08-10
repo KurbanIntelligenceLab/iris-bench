@@ -2,7 +2,7 @@
 
 > **ECCV 2026**
 
-[**📄 Paper (arXiv)**](https://arxiv.org/abs/2603.16432) · [**🌐 Project Page**](https://kurbanintelligencelab.github.io/iris-benchmark.github.io/) · [**🤗 Dataset**](https://huggingface.co/datasets/rasulkhanbayov/IRIS)
+[**📄 Paper (arXiv)**](https://arxiv.org/abs/2603.16432) · [**🌐 Project Page**](https://kurbanintelligencelab.github.io/iris-bench/) · [**🤗 Dataset**](https://huggingface.co/datasets/rasulkhanbayov/IRIS)
 
 This repository contains the **IRIS benchmark** and the code for a two-stage pipeline that **automatically identifies both the governing equation and its physical parameters from video**, without relying on folder structure or manual labelling.
 
