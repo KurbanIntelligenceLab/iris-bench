@@ -24,8 +24,8 @@ This repository contains the **IRIS benchmark** and the code for a two-stage pip
 
 IRIS uses a two-stage pipeline to identify the governing equation and estimate its physical parameters directly from video:
 
-- **Stage 1 — Equation-family selection:** A Vision-Language Model (VLM) or a fine-tuned video classifier analyzes the video and selects the applicable ODE from the library.
-- **Stage 2 — Parameter estimation:** An encoder maps video frames into a latent space where a physics block fits the selected ODE and estimates physical parameters (e.g. gravity *g*, pendulum length, friction, decay rate).
+- **Stage 1: Equation-family selection:** A Vision-Language Model (VLM) or a fine-tuned video classifier analyzes the video and selects the applicable ODE from the library.
+- **Stage 2: Parameter estimation:** An encoder maps video frames into a latent space where a physics block fits the selected ODE and estimates physical parameters (e.g. gravity *g*, pendulum length, friction, decay rate).
 
 We also introduce **IRIS**, a 4K real-world benchmark of **240 videos** across **8 dynamics classes** (single- and multi-body) with independently measured ground-truth parameters.
 
@@ -130,10 +130,10 @@ Generated reports and evaluation results are saved under [`Results/`](Results/).
 
 ## Key Contributions
 
-1. **Automatic equation-family selection from video** — temporal-reasoning VLM and a fine-tuned ResNet-18 classifier (100% on the IRIS evaluation set).
-2. **Multi-step physics loss** — rollout supervision over horizons 1–5 improves long-horizon consistency and parameter identifiability.
-3. **Unified physics model** — a single graph-structured architecture for both single- and multi-body systems, with a corrected gradient-passing Euler update.
-4. **IRIS benchmark** — 240 real-world 4K videos, 8 dynamics, with measured ground truth and a standardized evaluation protocol.
+1. **Automatic equation-family selection from video:** temporal-reasoning VLM and a fine-tuned ResNet-18 classifier (100% on the IRIS evaluation set).
+2. **Multi-step physics loss:** rollout supervision over horizons 1–5 improves long-horizon consistency and parameter identifiability.
+3. **Unified physics model:** a single graph-structured architecture for both single- and multi-body systems, with a corrected gradient-passing Euler update.
+4. **IRIS benchmark:** 240 real-world 4K videos, 8 dynamics, with measured ground truth and a standardized evaluation protocol.
 
 ## Tests
 
@@ -143,7 +143,7 @@ pytest tests/
 
 ## License
 
-- **Code:** MIT — see [`LICENSE.txt`](LICENSE.txt).
+- **Code:** MIT, see [`LICENSE.txt`](LICENSE.txt).
 - **IRIS dataset:** CC-BY-NC-4.0 (non-commercial), per the [Hugging Face dataset card](https://huggingface.co/datasets/rasulkhanbayov/IRIS).
 
 ## Citation
