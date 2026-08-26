@@ -1,6 +1,4 @@
-<div align="left">
-
-<h1>IRIS: A Real-World Benchmark for Inverse Recovery and Identification of Physical Dynamic Systems from Monocular Video</h1>
+# IRIS: A Real-World Benchmark for Inverse Recovery and Identification of Physical Dynamic Systems from Monocular Video
 
 <p>
   <a href="https://www.linkedin.com/in/rasulkhanbayov/">Rasul Khanbayov</a><sup>*</sup>,
@@ -19,8 +17,6 @@
 </p>
 
 <img src="assets/Benchmark_Preview.png" alt="IRIS benchmark preview" width="100%">
-
-</div>
 
 This repository contains the **IRIS benchmark** and the code for a two-stage pipeline that **automatically identifies both the governing equation and its physical parameters from video**, without relying on folder structure or manual labelling.
 
