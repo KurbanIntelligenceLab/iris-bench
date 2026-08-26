@@ -7,6 +7,11 @@
 
 # --- Large / binary image & vector assets (regenerable) ---
 *.svg
+!gifs/arxiv-logo.svg
+!gifs/huggingface-logo.svg
+!docs/gifs/arxiv-logo.svg
+!docs/gifs/huggingface-logo.svg
+!assets/*.svg
 *.jpg
 *.ai
 *.eps
@@ -14,6 +19,7 @@
 # Ignore stray PNGs (e.g. Results/*.png run plots) but keep doc figures if any are added:
 *.png
 !docs/**/*.png
+!assets/Benchmark_Preview.png
 
 # --- GIFs: ignore by default, but KEEP the project-page assets ---
 *.gif
