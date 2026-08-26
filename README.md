@@ -1,12 +1,28 @@
-# IRIS: A Real-World Benchmark for Inverse Recovery and Identification of Physical Dynamic Systems from Monocular Video
+<div align="center">
 
-> **ECCV 2026**
+<h1>IRIS: A Real-World Benchmark for Inverse Recovery and Identification of Physical Dynamic Systems from Monocular Video</h1>
 
-[**📄 Paper (arXiv)**](https://arxiv.org/abs/2603.16432) · [**🌐 Project Page**](https://kurbanintelligencelab.github.io/iris-bench/) · [**🤗 Dataset**](https://huggingface.co/datasets/rasulkhanbayov/IRIS)
+<p>
+  <a href="https://www.linkedin.com/in/rasulkhanbayov/">Rasul Khanbayov</a><sup>*</sup>,
+  <a href="https://bmrayan.com/">Mohamed Rayan Barhdadi</a><sup>*</sup>,
+  <a href="https://scholar.google.com/citations?user=THi_ypMAAAAJ&amp;hl=en&amp;authuser=3&amp;oi=ao">Erchin Serpedin</a>,
+  <a href="https://www.hasankurban.com/">Hasan Kurban</a>
+</p>
+
+<p><strong><sup>*</sup>Equal contribution</strong></p>
+<p><strong>Accepted to ECCV 2026 🎉</strong></p>
+
+<p>
+  <a href="https://arxiv.org/pdf/2603.16432"><strong>Paper (arXiv)</strong></a> ·
+  <a href="https://kurbanintelligencelab.github.io/iris-bench/"><strong>Project Page</strong></a> ·
+  <a href="https://huggingface.co/datasets/rasulkhanbayov/IRIS"><strong>Dataset</strong></a>
+</p>
+
+<img src="assets/Benchmark_Preview.png" alt="IRIS benchmark preview" width="100%">
+
+</div>
 
 This repository contains the **IRIS benchmark** and the code for a two-stage pipeline that **automatically identifies both the governing equation and its physical parameters from video**, without relying on folder structure or manual labelling.
-
----
 
 ## TL;DR
 
@@ -16,8 +32,6 @@ Most prior work assumes you already know which ODE governs a system (e.g. pendul
 - **Stage 2 — Parameter estimation:** An encoder maps video frames into a latent space where a physics block fits the selected ODE and estimates physical parameters (e.g. gravity *g*, pendulum length, friction, decay rate).
 
 We also introduce **IRIS**, a 4K real-world benchmark of **240 videos** across **8 dynamics classes** (single- and multi-body) with independently measured ground-truth parameters.
-
----
 
 ## The IRIS Dataset
 
@@ -44,8 +58,6 @@ huggingface-cli download rasulkhanbayov/IRIS --repo-type dataset --local-dir ./I
 
 We also evaluate on **Delfys75** (75 real videos, 5 systems), available on [Kaggle](https://www.kaggle.com/datasets/jaswar/physical-parameter-prediction).
 
----
-
 ## Installation
 
 ```bash
@@ -61,8 +73,6 @@ export OPENROUTER_API_KEY=your_key_here     # copy .env.example to .env
 ```
 
 **Tested with:** Python 3.12, PyTorch (CUDA 12.1), single NVIDIA GPU. See `requirements.txt` / `environment.yml` for pinned versions and `scripts/check_cuda.py` to verify your GPU setup.
-
----
 
 ## Reproducing the Paper
 
@@ -132,8 +142,6 @@ python scripts/run_hitting_cones_kappa_experiment.py
 
 Both scripts use a fixed seed and resolve paths relative to the repo, so the committed numbers are reproducible.
 
----
-
 ## Repository Structure
 
 ```
@@ -157,12 +165,11 @@ Both scripts use a fixed seed and resolve paths relative to the repo, so the com
 │   └── run_hitting_cones_kappa_experiment.py  # Rebuttal: kappa ablation
 ├── Results/                    # Reference outputs matching the paper
 ├── tests/                      # Unit tests (integrators, coupling, unified N=1)
+├── assets/                     # README preview image
 ├── docs/                       # Project page (GitHub Pages source)
 ├── environment.yml
 └── requirements.txt
 ```
-
----
 
 ## Key Contributions
 
@@ -171,33 +178,28 @@ Both scripts use a fixed seed and resolve paths relative to the repo, so the com
 3. **Unified physics model** — a single graph-structured architecture for both single- and multi-body systems, with a corrected gradient-passing Euler update.
 4. **IRIS benchmark** — 240 real-world 4K videos, 8 dynamics, with measured ground truth and a standardized evaluation protocol.
 
----
-
 ## Tests
 
 ```bash
 pytest tests/
 ```
 
----
-
 ## License
 
 - **Code:** MIT — see [`LICENSE.txt`](LICENSE.txt).
 - **IRIS dataset:** CC-BY-NC-4.0 (non-commercial), per the [Hugging Face dataset card](https://huggingface.co/datasets/rasulkhanbayov/IRIS).
 
----
-
 ## Citation
 
 ```bibtex
-@inproceedings{khanbayov2026iris,
-  title     = {{IRIS}: A Real-World Benchmark for Inverse Recovery and Identification
-               of Physical Dynamic Systems from Monocular Video},
-  author    = {Khanbayov, Rasul and Barhdadi, Mohamed Rayan and
-               Serpedin, Erchin and Kurban, Hasan},
-  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
-  year      = {2026}
+@misc{khanbayov2026iris,
+  title={IRIS: A Real-World Benchmark for Inverse Recovery and Identification of Physical Dynamic Systems from Monocular Video},
+  author={Rasul Khanbayov and Mohamed Rayan Barhdadi and Erchin Serpedin and Hasan Kurban},
+  year={2026},
+  eprint={2603.16432},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2603.16432},
 }
 ```
 
