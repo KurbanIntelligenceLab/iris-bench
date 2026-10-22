@@ -1,0 +1,3 @@
+WARNING: GT torricelli/medium/k: params file 0.0128264315869546 != builtin 0.0128; using params file
+WARNING: GT torricelli/small/k: params file 0.009553717173659406 != builtin 0.0096; using params file
+Wrote <repo>/Results/repro_d75/preprocessing/gt_used.json

@@ -1,0 +1,17 @@
+Comparison: Baseline (main.py) vs Unified (run_unified_delfys75.py)
+Negative diff_err = unified has lower error (better).
+================================================================================
+Dynamics         Setting        Param        GT         Unif_est   Unif_|Err| Base_est   Base_|Err| Diff_err  
+--------------------------------------------------------------------------------
+led              led_10s        decay        0.4600     1.6761     1.2161     0.0000     0.4600     0.7561    
+led              led_2s         decay        2.3000     1.7417     0.5583     0.0000     2.3000     -1.7417   
+led              led_5s         decay        0.9200     1.6505     0.7305     0.0000     0.9200     -0.1895   
+pendulum         pendulum_150   damping      -0.0592    -5.4344    5.3752     -0.1997    0.1404     5.2347    
+pendulum         pendulum_150   length_m     1.5000     3.1934     1.7394     31.1490    29.6490    -27.9096  
+pendulum         pendulum_45    damping      -0.0592    -3.1239    3.0647     -0.5569    0.4977     2.5670    
+pendulum         pendulum_45    length_m     0.4500     19.0176    18.5676    95.9935    95.5435    -76.9760  
+pendulum         pendulum_90    damping      -0.0592    -4.5090    4.4498     -0.3693    0.3101     4.1397    
+pendulum         pendulum_90    length_m     0.9000     10.4972    9.5972     51.7690    50.8690    -41.2719  
+torricelli       large          k            0.0162     7.4745     7.4583     9.7954     9.7792     -2.3209   
+torricelli       medium         k            0.0128     1.6432     1.6355     10.0766    10.0638    -8.4282   
+torricelli       small          k            0.0096     1.3233     1.3137     7.5396     7.5300     -6.2163   

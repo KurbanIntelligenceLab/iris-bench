@@ -1,0 +1,36 @@
+{
+ "name": "uniform_stride6_nf10",
+ "fps_nominal": 60.0,
+ "dynamics": {
+  "dropped_ball": {
+   "stride": 6,
+   "nf": 10,
+   "dt": 0.1
+  },
+  "free_fall": {
+   "stride": 6,
+   "nf": 10,
+   "dt": 0.1
+  },
+  "led": {
+   "stride": 6,
+   "nf": 10,
+   "dt": 0.1
+  },
+  "pendulum": {
+   "stride": 6,
+   "nf": 10,
+   "dt": 0.1
+  },
+  "sliding_block": {
+   "stride": 6,
+   "nf": 10,
+   "dt": 0.1
+  },
+  "torricelli": {
+   "stride": 6,
+   "nf": 10,
+   "dt": 0.1
+  }
+ }
+}

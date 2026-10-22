@@ -1,0 +1,30 @@
+\begin{tabular}{lll r r r}
+\toprule
+Dynamics & Setting & Param & GT & 1step & multi \\
+\midrule
+dropped ball & large & g & 9.807 & 0.25 (5/5) & 0.18 (5/5) \\
+dropped ball & medium & g & 9.807 & 0.49 (5/5) & 0.45 (5/5) \\
+dropped ball & small & g & 9.807 & 0.53 (5/5) & 0.47 (5/5) \\
+led & led 10s & decay & 0.460 & 2.09 (5/5) & 7.46 (5/5) \\
+led & led 2s & decay & 2.300 & 7.45 (5/5) & 7.57 (5/5) \\
+led & led 5s & decay & 0.920 & 8.44 (5/5) & 8.44 (5/5) \\
+pendulum & pendulum 150 & damping & -0.059 & 0.12 (5/5) & 0.77 (5/5) \\
+pendulum & pendulum 150 & length & 1.500 & 1.18 (5/5) & 1.18 (5/5) \\
+pendulum & pendulum 45 & damping & -0.059 & 0.58 (5/5) & 0.73 (5/5) \\
+pendulum & pendulum 45 & length & 0.450 & 0.35 (5/5) & 0.50 (5/5) \\
+pendulum & pendulum 90 & damping & -0.059 & 0.29 (5/5) & 0.25 (5/5) \\
+pendulum & pendulum 90 & length & 0.900 & 0.71 (5/5) & 0.71 (5/5) \\
+sliding block & high & acceleration & 3.140 & 81.05 (5/5) & 81.71 (5/5) \\
+sliding block & low & acceleration & 1.441 & 98.42 (5/5) & 98.40 (5/5) \\
+sliding block & mid & acceleration & 2.299 & 82.86 (5/5) & 84.04 (5/5) \\
+torricelli & large & k & 0.016 & 6.27 (5/5) & 6.54 (5/5) \\
+torricelli & medium & k & 0.013 & 9.92 (5/5) & 9.93 (5/5) \\
+torricelli & small & k & 0.010 & 8.95 (4/5) & 9.70 (4/5) \\
+free fall$^\ast$ & mousepad & g & 9.807 & 2.12 (4/5) & 1.65 (4/5) \\
+free fall$^\ast$ & table & g & 9.807 & 1.06 (5/5) & 0.15 (5/5) \\
+free fall$^\ast$ & tennis & g & 9.807 & 1.06 (5/5) & 0.53 (5/5) \\
+\bottomrule
+\end{tabular}
+% All Delfys75 settings
+% Cells: MAE over successful clips (n_ok/n_total). n/a = failed or not physically mapped.
+% * extra: bouncing-ball clips, not in Delfys75; g is not their GT (elasticity)

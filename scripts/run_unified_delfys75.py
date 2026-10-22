@@ -4,7 +4,7 @@ in the same CSV format as main.py (run, alpha, beta, max_z, min_z, z0, z1)
 so you can compare with baseline and run parameter-error comparison.
 
 Usage:
-  # Unified model only (path-based dynamics)
+  # Unified model only (path-based dynamics); --seed N seeds each clip (default 42, -1 = unseeded)
   python scripts/run_unified_delfys75.py --path ./delfys75 --outfolder delfys75_unified --dt 0.05
 
   # All improvements together: VLM equation-family selection + unified model + multi-step loss
@@ -157,6 +157,7 @@ def run_pipeline(
     use_vlm: bool = False,
     vlm_improved: bool = False,
     use_multistep_loss: bool = False,
+    seed: int | None = 42,
 ):
     with open(config_path) as f:
         config = yaml.safe_load(f)
@@ -191,6 +192,10 @@ def run_pipeline(
             else:
                 print(f"Processing {file_path} ...")
             try:
+                # Seed per clip so a run is reproducible (seed=None keeps the old, unseeded behaviour).
+                if seed is not None:
+                    torch.manual_seed(seed)
+                    np.random.seed(seed)
                 video = load_video_tensor(file_path).to(device)
                 if video.shape[1] < 3:
                     print(f"  Skip: too few frames ({video.shape[1]})")
@@ -234,6 +239,7 @@ def main():
     ap.add_argument("--use_vlm", action="store_true", help="Stage 1: Use VLM to select equation family from video (else path-based).")
     ap.add_argument("--vlm_improved", action="store_true", help="Use improved VLM (enhanced prompt + 5 frames). Implies --use_vlm.")
     ap.add_argument("--multistep", action="store_true", help="Use multi-step physics loss (horizons 1..5, weighted).")
+    ap.add_argument("--seed", type=int, default=42, help="Random seed, set before each clip (-1: unseeded, as in the original runs).")
     args = ap.parse_args()
 
     use_vlm = args.use_vlm or args.vlm_improved
@@ -250,6 +256,7 @@ def main():
         use_vlm=use_vlm,
         vlm_improved=args.vlm_improved,
         use_multistep_loss=args.multistep,
+        seed=None if args.seed < 0 else args.seed,
     )
 
 

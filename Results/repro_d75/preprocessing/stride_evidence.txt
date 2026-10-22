@@ -1,0 +1,3 @@
+45 clips with a logged shape (clips that failed to load have none).
+  matching stride(s) = 6: 45 clips
+Per-clip table: <repo>/Results/repro_d75/preprocessing/stride_evidence.csv

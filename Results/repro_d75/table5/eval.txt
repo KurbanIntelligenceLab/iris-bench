@@ -1,0 +1,28 @@
+1step: Results/delfys75_original/delfys75.csv (baseline) - 90 clips, 2 failed
+multi: Results/delfys75/delfys75.csv (baseline) - 90 clips, 2 failed
+dynamics      setting       param          GT                 1step                 multi
+dropped_ball  large         g          9.8066           0.248 (5/5)           0.176 (5/5)
+dropped_ball  medium        g          9.8066           0.486 (5/5)           0.452 (5/5)
+dropped_ball  small         g          9.8066           0.534 (5/5)           0.473 (5/5)
+led           led_10s       decay      0.4600           2.092 (5/5)           7.462 (5/5)
+led           led_2s        decay      2.3000           7.449 (5/5)           7.574 (5/5)
+led           led_5s        decay      0.9200           8.436 (5/5)           8.441 (5/5)
+pendulum      pendulum_150  damping   -0.0592           0.123 (5/5)           0.773 (5/5)
+pendulum      pendulum_150  length     1.5000           1.184 (5/5)           1.180 (5/5)
+pendulum      pendulum_45   damping   -0.0592           0.585 (5/5)           0.726 (5/5)
+pendulum      pendulum_45   length     0.4500           0.347 (5/5)           0.501 (5/5)
+pendulum      pendulum_90   damping   -0.0592           0.288 (5/5)           0.247 (5/5)
+pendulum      pendulum_90   length     0.9000           0.709 (5/5)           0.707 (5/5)
+sliding_block high          acceleration  3.1402          81.047 (5/5)          81.710 (5/5)
+sliding_block low           acceleration  1.4410          98.419 (5/5)          98.399 (5/5)
+sliding_block mid           acceleration  2.2994          82.858 (5/5)          84.040 (5/5)
+torricelli    large         k          0.0162           6.269 (5/5)           6.536 (5/5)
+torricelli    medium        k          0.0128           9.924 (5/5)           9.927 (5/5)
+torricelli    small         k          0.0096           8.946 (4/5)           9.700 (4/5)
+--- extra: bouncing-ball clips, not in Delfys75; g is not their GT (elasticity) ---
+free_fall     mousepad      g          9.8066           2.119 (4/5)           1.652 (4/5)
+free_fall     table         g          9.8066           1.055 (5/5)           0.152 (5/5)
+free_fall     tennis        g          9.8066           1.058 (5/5)           0.528 (5/5)
+
+Cells: MAE over successful clips (n_ok/n_total). n/a = all failed or no physical mapping.
+Mapping notes per row are in summary.csv. Pendulum damping sign convention is unverified.

@@ -1,0 +1,11 @@
+description: preprocessing of the Delfys75 Kaggle v11 videos; the stride-6 data is the one used here (the same job also wrote other variants not used in this folder)
+date: 2026-10-14T19:18:28+03:00
+gpu: 
+python 3.12.15 | torch 2.5.1+cu121 | cuda 12.1 | cudnn 90100 | numpy 1.26.4 | cv2 4.10.0 | cuda_available False
+tool_hashes (versions at run time):
+3cf9f12f25fe9b4f0a5cb69752a9887c1a1ca2eb3373fe4aa4b0d0fbd102090b  repro_d75/run_baseline.py
+858a527918404d30e16996030a55769af30eb4dc3b85d086b2391dbcf16f6a1e  repro_d75/run_unified.py
+7fad55b3c9d08492cd363f3e9f00cd64365d5fff2236b751a0c5524ef4167a86  repro_d75/stride_evidence.py
+83a249b733be46bf15a0a1ecf6932f08cdb8699327588b0be69b2c23d61feb93  repro_d75/verify_npy.py
+fa401a26d93956b112f0394833caac6f2a2407af9a431ec0b0730a69350b2fea  repro_d75/video2npy_fixed.py
+24d4f0d461f06e0aa8d184673341bd498d9e5fea7185f6a21fa9423b7c232d74  scripts/evaluate_delfys75.py

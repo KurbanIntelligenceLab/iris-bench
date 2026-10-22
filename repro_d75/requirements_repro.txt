@@ -1,0 +1,16 @@
+# Pinned environment used for the Delfys75 re-run (see REPRODUCE_DELFYS75.md).
+# The packages of the public requirements.txt with fixed versions, using
+# opencv-python-headless (no GUI dependencies) and adding pyyaml. cu121 wheels run on both A100 (sm_80) and H200 (sm_90).
+--index-url https://download.pytorch.org/whl/cu121
+--extra-index-url https://pypi.org/simple
+torch==2.5.1
+torchvision==0.20.1
+numpy==1.26.4
+scikit-learn==1.5.2
+matplotlib==3.9.2
+opencv-python-headless==4.10.0.84
+omegaconf==2.3.0
+pyyaml==6.0.2
+Pillow==10.4.0
+wandb==0.18.5
+openai==1.54.4

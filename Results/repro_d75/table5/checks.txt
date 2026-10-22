@@ -1,0 +1,9 @@
+row                            paper 1-step   regen.  paper Multi   regen.
+dropped_ball/large/g                   0.25     0.25         0.18     0.18  OK
+free_fall/mousepad/g                   2.12     2.12         1.65     1.65  OK
+free_fall/table/g                      1.06     1.06         0.15     0.15  OK
+free_fall/tennis/g                     1.06     1.06         0.53     0.53  OK
+led/led_10s/decay                      2.09     2.09         7.46     7.46  OK
+pendulum/pendulum_45/length            0.35     0.35         0.50     0.50  OK
+torricelli/large/k                     6.27     6.27         6.54     6.54  OK
+7/7 Table 5 rows regenerated

@@ -1,0 +1,48 @@
+90 files checked; manifest: <data>/delfys75_garcia.sha256.tsv
+  dropped_ball/large            5
+  dropped_ball/medium           5
+  dropped_ball/small            5
+  free_fall/mousepad            5
+  free_fall/table               5
+  free_fall/tennis              5
+  led/led_10s                   5
+  led/led_2s                    5
+  led/led_5s                    5
+  pendulum/pendulum_150         5
+  pendulum/pendulum_45          5
+  pendulum/pendulum_90          5
+  sliding_block/high            5
+  sliding_block/low             5
+  sliding_block/mid             5
+  torricelli/large              5
+  torricelli/medium             5
+  torricelli/small              5
+All files OK.
+45 files checked; manifest: <delfys75_s6>.sha256.tsv
+  led/led_10s                   5
+  led/led_2s                    5
+  led/led_5s                    5
+  pendulum/pendulum_150         5
+  pendulum/pendulum_45          5
+  pendulum/pendulum_90          5
+  torricelli/large              5
+  torricelli/medium             5
+  torricelli/small              5
+All files OK.
+69 files checked; manifest: <data>/delfys75_s3.sha256.tsv
+  dropped_ball/large            3   <-- expected 5
+  dropped_ball/medium           2   <-- expected 5
+  dropped_ball/small            4   <-- expected 5
+  led/led_10s                   5
+  led/led_2s                    5
+  led/led_5s                    5
+  pendulum/pendulum_150         5
+  pendulum/pendulum_45          5
+  pendulum/pendulum_90          5
+  sliding_block/high            5
+  sliding_block/low             5
+  sliding_block/mid             5
+  torricelli/large              5
+  torricelli/medium             5
+  torricelli/small              5
+All files OK.

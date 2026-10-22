@@ -52,7 +52,7 @@ pip install huggingface_hub
 huggingface-cli download rasulkhanbayov/IRIS --repo-type dataset --local-dir ./IRIS
 ```
 
-We also evaluate on **Delfys75** (75 real videos, 5 systems), available on [Kaggle](https://www.kaggle.com/datasets/jaswar/physical-parameter-prediction).
+We also evaluate on **Delfys75** (75 real videos, 5 systems), available on [Kaggle](https://www.kaggle.com/datasets/jaswar/physical-parameter-prediction). To reproduce the Delfys75, see [REPRODUCE_DELFYS75.md](REPRODUCE_DELFYS75.md). Note: `scripts/run_unified_delfys75.py` now seeds each clip (`--seed`, default 42); pass `--seed -1` for the unseeded behaviour of the released runs.
 
 ## Installation
 
@@ -72,10 +72,10 @@ export OPENROUTER_API_KEY=your_key_here     # copy .env.example to .env
 
 ## Quick Start
 
-After installing the dependencies and downloading IRIS to `./IRIS`, convert the videos to tensors:
+After installing the dependencies and downloading IRIS to `./IRIS`, convert the videos to tensors. `src/utils/video2npy.py` takes no command-line arguments: set `base_path` at the bottom of the file to `./IRIS`, then run it. The `.npy` files are written next to the videos.
 
 ```bash
-python src/utils/video2npy.py --input_dir ./IRIS --output_dir ./IRIS_npy
+python src/utils/video2npy.py
 ```
 
 Run equation-family selection:
@@ -119,8 +119,12 @@ Generated reports and evaluation results are saved under [`Results/`](Results/).
 │       └── video_classifier/   # ResNet-18 video classifier
 ├── scripts/                    # Training and evaluation scripts
 │   ├── run_multi_clip_iris.py              # Multi-clip evaluation
-│   └── run_hitting_cones_kappa_experiment.py  # Coupling-coefficient ablation
-├── Results/                    # Reference outputs matching the paper
+│   ├── run_hitting_cones_kappa_experiment.py  # Coupling-coefficient ablation
+│   ├── reproduce_delfys75.sh               # Delfys75 Tables 4 and 5 (see REPRODUCE_DELFYS75.md)
+│   └── evaluate_delfys75.py                # Delfys75 Table 5 evaluation
+├── repro_d75/                  # Delfys75: fixed-stride preprocessing, checksums, seeded runners,
+│                               #   and table4_code/ (code version that produced Table 4)
+├── Results/                    # Reference outputs (repro_d75/: Delfys75 re-run, see REPRODUCE_DELFYS75.md)
 ├── tests/                      # Unit tests (integrators, coupling, unified N=1)
 ├── assets/                     # README preview image
 ├── docs/                       # Project page (GitHub Pages source)

@@ -32,6 +32,11 @@
 !**/config.json
 !**/tokenizer*.json
 !**/generation_config.json
+!Results/repro_d75/**/*.json
+# Default work folders of scripts/reproduce_delfys75.sh
+delfys75_raw/
+delfys75_s6/
+Results/repro_d75_local/
 
 # --- Model checkpoints (keep released adapter via safetensors, ignore training ckpts) ---
 *.pt
